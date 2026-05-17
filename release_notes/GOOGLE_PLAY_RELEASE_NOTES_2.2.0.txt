@@ -1,0 +1,10 @@
+New Features:
+• App Settings: tap ⚙ on the files list to force dark mode and pick your language — English, Polski, Українська, Español or Deutsch.
+• Polish, Ukrainian, Spanish and German on every screen including About.
+
+Improvements:
+• Files list no longer scrolls under the bottom buttons.
+
+Bug Fixes:
+• Frame-speed change mid-scan no longer wipes receiver progress.
+• Switching codec in settings now actually swaps the QR format.

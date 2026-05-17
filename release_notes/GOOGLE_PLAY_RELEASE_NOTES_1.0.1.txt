@@ -1,0 +1,10 @@
+Improvements:
+• Received files now show as rounded cards — easier to scan at a glance.
+• Swipe-to-delete shows a red background with a trash icon.
+• About screen opens faster and pinch-to-zoom works in the privacy policy.
+
+Bug Fixes:
+• Pull-to-refresh spinner no longer hangs.
+• Swipe-delete visuals stay through the confirmation dialog.
+• Privacy policy renders reliably on older tablets.
+• File-action buttons restyled for consistency.

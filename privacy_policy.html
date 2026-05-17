@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<!--
+  COPYRIGHT NOTICE
+  © 2026 Rafał Stańczuk. All Rights Reserved.
+
+  This file and all contents are protected by copyright law.
+  Unauthorized copying, distribution, modification, or use is strictly prohibited.
+
+  For licensing inquiries: briskwire@gmail.com
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy — Briskwire™</title>
+    <meta name="robots" content="index, follow, noai, noimageai">
+    <link rel="icon" type="image/svg+xml" href="icons/ic_launcher.svg">
+    <link rel="canonical" href="https://briskwire.github.io/privacy_policy.html">
+    <style>
+        :root {
+            --bg: #0e1416;
+            --surface: #1a2528;
+            --surface-alt: #212e32;
+            --primary: #4dd0e1;
+            --primary-dim: #37a8b8;
+            --on-surface: #dde6e8;
+            --on-surface-muted: #8fa8ae;
+            --border: #2a3b3f;
+            --code-bg: #1e2d31;
+            --highlight-info: #0d2e35;
+            --highlight-info-border: #37a8b8;
+            --highlight-warn: #2b2000;
+            --highlight-warn-border: #f59e0b;
+            --highlight-success: #0b2a1a;
+            --highlight-success-border: #34d399;
+            --highlight-success-text: #6ee7b7;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.7;
+            color: var(--on-surface);
+            background-color: var(--bg);
+            min-height: 100vh;
+        }
+
+        .page-nav {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background: rgba(14, 20, 22, 0.92);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--border);
+            padding: 12px 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .page-nav a.home-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            opacity: 0.85;
+            transition: opacity 0.15s;
+        }
+        .page-nav a.home-link:hover { opacity: 1; }
+        .page-nav a.home-link img { width: 24px; height: 24px; }
+        .page-nav .separator { color: var(--border); }
+        .page-nav .page-title { color: var(--on-surface-muted); font-size: 0.9rem; }
+
+        .container {
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 40px 24px 80px;
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            border-bottom: 2px solid var(--primary-dim);
+            padding-bottom: 12px;
+            margin-bottom: 24px;
+        }
+
+        h2 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-top: 36px;
+            margin-bottom: 12px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 6px;
+        }
+
+        h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--on-surface);
+            margin-top: 20px;
+            margin-bottom: 8px;
+        }
+
+        p { margin-bottom: 14px; }
+
+        ul {
+            padding-left: 22px;
+            margin-bottom: 14px;
+        }
+
+        li { margin-bottom: 8px; }
+
+        strong { color: #fff; font-weight: 600; }
+
+        a { color: var(--primary); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        hr {
+            border: 0;
+            border-top: 1px solid var(--border);
+            margin: 36px 0;
+        }
+
+        code {
+            background: var(--code-bg);
+            color: var(--primary);
+            padding: 2px 7px;
+            border-radius: 4px;
+            font-size: 0.88em;
+            font-family: 'JetBrains Mono', 'Courier New', monospace;
+            overflow-wrap: anywhere;
+            word-break: break-word;
+        }
+
+        .meta-info {
+            background: var(--surface);
+            padding: 18px 20px;
+            border-radius: 10px;
+            margin-bottom: 28px;
+            border-left: 4px solid var(--primary-dim);
+        }
+
+        .meta-info p { margin-bottom: 6px; }
+        .meta-info p:last-child { margin-bottom: 0; }
+
+        .important-box {
+            background: var(--highlight-info);
+            border: 1px solid var(--highlight-info-border);
+            color: var(--primary);
+            padding: 14px 18px;
+            border-radius: 8px;
+            margin: 18px 0;
+            font-weight: 500;
+        }
+
+        .exclusion-box {
+            background: var(--highlight-warn);
+            border-left: 4px solid var(--highlight-warn-border);
+            color: #fcd34d;
+            padding: 14px 18px;
+            border-radius: 8px;
+            margin: 18px 0;
+        }
+
+        .summary-box {
+            background: var(--highlight-success);
+            border-left: 4px solid var(--highlight-success-border);
+            color: var(--highlight-success-text);
+            padding: 16px 18px;
+            border-radius: 8px;
+            margin: 18px 0;
+        }
+
+        .summary-box h3 {
+            color: var(--highlight-success-text);
+            margin-top: 0;
+        }
+
+        .footer-note {
+            text-align: center;
+            color: var(--on-surface-muted);
+            font-size: 0.9em;
+            margin-top: 8px;
+        }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 1.5rem; }
+            .container { padding: 24px 16px 60px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="page-nav">
+        <a href="index.html" class="home-link">
+            <img src="icons/ic_launcher.svg" alt="">
+            Briskwire™
+        </a>
+        <span class="separator">›</span>
+        <span class="page-title">Privacy Policy</span>
+    </nav>
+
+    <div class="container">
+
+        <h1>Privacy Policy</h1>
+
+        <div class="meta-info">
+            <p><strong>Effective Date:</strong> 2026-05-15</p>
+            <p><strong>Policy Version:</strong> <code>2026-05-15</code></p>
+            <p><strong>Application:</strong> Briskwire™</p>
+            <p><strong>Developer:</strong> Rafał Stańczuk</p>
+            <p><strong>Contact:</strong> <a href="mailto:briskwire@gmail.com">briskwire@gmail.com</a></p>
+            <p><strong>Canonical URL:</strong> <a href="https://briskwire.github.io/privacy_policy.html"><code>https://briskwire.github.io/privacy_policy.html</code></a></p>
+        </div>
+
+        <div class="summary-box">
+            <h3>One-sentence summary</h3>
+            <p style="margin-bottom: 0;">Briskwire™ has no <code>INTERNET</code> permission and transmits nothing off your device. It moves files between two devices using the screen and camera or a short-range NFC tap, and it can scan general barcodes on demand — everything it remembers is kept locally in the app's private storage.</p>
+        </div>
+
+        <h2>Introduction</h2>
+        <p>Briskwire™ ("the App") is an offline tool with four user-visible capabilities:</p>
+        <ul>
+            <li><strong>Animated-QR file transfer</strong> — one device displays a sequence of QR codes on its screen; the other device scans them with its camera and reassembles the original file.</li>
+            <li><strong>NFC-tap file transfer</strong> — the two devices are held back-to-back and the file is streamed over the short-range NFC radio using Android's built-in Host Card Emulation (HCE) and Reader Mode APIs. Range is a few centimetres; no pairing, no discovery broadcasts.</li>
+            <li><strong>Detect</strong> — a general-purpose barcode scanner that decodes any QR, EAN, UPC, Code-128, Code-39, Code-93, Codabar, ITF, Aztec, Data Matrix, or PDF417 code your camera sees. Decoded content is kept in a local on-device session list until you delete it.</li>
+            <li><strong>Code generation ("Generate")</strong> — build a QR or barcode from a typed payload (URL, Wi-Fi credentials, contact card, SMS, email, phone, geographic location, calendar event, product code, or plain text). The preview bitmap re-renders on-device as you type; nothing is persisted to disk and nothing is transmitted off the device.</li>
+        </ul>
+        <p>No network, no cloud, no account. In every mode, the data only ever lives on your device or travels directly between the two devices in your hand.</p>
+
+        <p>This privacy policy explains exactly what the App does, does not do, and what your rights are. It is intended to comply with the Google Play Developer Program Policies, the EU General Data Protection Regulation (GDPR), and the California Consumer Privacy Act (CCPA).</p>
+
+        <h2>Data collection</h2>
+        <div class="important-box">
+            <p style="margin-bottom: 0;"><strong>Briskwire™ does not collect any personal data and sends nothing about you anywhere.</strong></p>
+        </div>
+
+        <p>The App does not collect, log, profile, transmit, or sell:</p>
+        <ul>
+            <li>Your name, email, phone number, or any personal identifier</li>
+            <li>Your location (precise or approximate)</li>
+            <li>Your device identifiers (IMEI, MAC, advertising ID)</li>
+            <li>Your files, their contents, or anything derived from them</li>
+            <li>Usage analytics, crash logs sent off-device, or performance telemetry</li>
+            <li>Contacts, calendar, call log, SMS, or any other shared Android data</li>
+        </ul>
+
+        <p>The App does store, on your device only, the content you explicitly receive or scan — received files, the metadata of those files, and the list of barcodes you have scanned in Detect. The "Local data on your device" section below describes each piece in detail.</p>
+
+        <h2>Data transmission</h2>
+        <div class="important-box">
+            <p style="margin-bottom: 0;"><strong>Briskwire™ does not transmit any data over the internet.</strong></p>
+        </div>
+
+        <p>The App does not declare the <code>android.permission.INTERNET</code> permission in its manifest. Android therefore cannot let the App open a network socket or make an HTTP request, period. No library bundled in the App — first- or third-party — can reach a remote server. This is enforced by the operating system, not by the App's own code.</p>
+
+        <p>All file transfer between two devices happens entirely through local, short-range channels: either the optical channel (one screen, one camera) or the NFC radio (Host Card Emulation on the sender, Reader Mode on the receiver). No Bluetooth, no Wi-Fi, no Wi-Fi Direct, no cellular data. The NFC channel carries framed APDU chunks directly between the two devices' NFC controllers; the bytes never touch the internet or any backend service.</p>
+
+        <h2>Permissions requested</h2>
+        <p>Briskwire™ declares exactly <strong>three</strong> permissions, each tied to a single user-visible feature:</p>
+        <ul>
+            <li><strong><code>android.permission.CAMERA</code></strong> (runtime) — used only to read codes shown by another device's screen or printed on a physical surface. The camera feed is processed in-memory frame-by-frame by the on-device barcode decoder; no frames are photographed, stored, or shared. Small thumbnails of barcodes you save in Detect are an exception and are described below.</li>
+            <li><strong><code>android.permission.NFC</code></strong> (install-time) — used only when you choose the NFC transfer mode. It lets the App act as an HCE service (sender) or put the NFC reader into reader mode (receiver) so the two devices can exchange file chunks while held together. No NFC data is logged, cached beyond the active transfer, or forwarded anywhere.</li>
+            <li><strong><code>android.permission.CHANGE_WIFI_STATE</code></strong> (install-time) — used only when you scan a Wi-Fi QR code in Detect and tap the on-screen "Connect" action. The App then calls Android's <code>WifiManager.addNetworkSuggestions()</code> API to hand the SSID and password to the system Wi-Fi panel, so you can tap the network and connect without typing the password manually. Briskwire™ never sends Wi-Fi credentials anywhere and never connects to the network itself; the actual association is handled by the Android OS and is governed by your phone's normal Wi-Fi behaviour.</li>
+        </ul>
+        <p>If you deny camera permission, the App still works for <em>sending</em> files (displaying animated QR codes on your screen does not need the camera); only the QR-receive flow and Detect become unavailable until you grant it in Android Settings.</p>
+
+        <p>If your device has no NFC hardware, doesn't support Host Card Emulation, or has NFC switched off in system settings, the NFC transfer option in the App stays <em>visible but disabled</em> — greyed out and non-tappable — rather than hidden. This way both transfer methods remain discoverable regardless of hardware; the QR mode stays fully available in every case.</p>
+
+        <h2>Wi-Fi credential QR codes</h2>
+        <p>Detect recognises Wi-Fi configuration QR codes (the <code>WIFI:T:…;S:…;P:…;;</code> format printed on many home routers and event posters). When you tap one of these in the scan history, the App parses the SSID, password, and encryption mode and offers a "Connect" button.</p>
+
+        <p>Tapping "Connect" calls Android's <code>WifiManager.addNetworkSuggestions()</code> API, which hands the credentials to the operating system's Wi-Fi subsystem. From that point on, the network appears in your system Wi-Fi panel pre-filled, and you choose whether to actually connect to it. Briskwire™ neither connects to the network itself nor transmits the credentials anywhere — the credentials are delivered to Android over an in-process binder API and never leave the device. The App also does not support WEP networks (it intentionally rejects them as insecure).</p>
+
+        <h2>Detect (general barcode scanning)</h2>
+        <p>Detect is a general-purpose barcode reader. Any code your camera frames — a website URL, a Wi-Fi credential card, a product barcode in a shop, a vCard contact card, a payment QR, a PDF417 boarding pass, and so on — is decoded entirely on the device using Google ML Kit's bundled barcode model.</p>
+
+        <p>Scans you save into a session are stored locally in the App's private SQLite database. For each saved scan the App records:</p>
+        <ul>
+            <li>The decoded text value of the code (e.g. the URL, the SSID, the vCard payload)</li>
+            <li>The raw bytes of the code, when the format requires byte-level preservation (Base64-encoded)</li>
+            <li>The barcode format (e.g. <code>QR_CODE</code>, <code>EAN_13</code>, <code>PDF417</code>)</li>
+            <li>The parsed value type (e.g. <code>URL</code>, <code>WIFI</code>, <code>CONTACT</code>, <code>TEXT</code>)</li>
+            <li>The capture timestamp</li>
+            <li>A SHA-256 hash of the raw value, used only on the device to deduplicate identical scans within one session</li>
+            <li>A small camera thumbnail of the code, written to the App's private <code>filesDir/detect/thumbnails/</code> folder, plus its pixel dimensions</li>
+        </ul>
+
+        <p>Sessions are arranged as a list you control. You can rename, annotate, delete individual scans, delete a whole session, or export a session as a CSV file. Exporting writes the CSV to the App's private <code>cacheDir/detect/exports/</code> folder and produces a <code>content://</code> URI you can hand to any other app via Android's standard share sheet — so you might attach it to an email, save it to Drive, or copy it to a USB stick. Briskwire™ itself never transmits the export; the receiving app you pick is governed by its own privacy policy.</p>
+
+        <p><strong>Acting on a scan.</strong> Depending on what a scanned code contains, the detail dialog may offer one-tap actions that hand the parsed value off to another app on your device using standard Android intents: open a URL in your browser (<code>ACTION_VIEW</code> on <code>http</code>/<code>https</code>), compose an email (<code>ACTION_SENDTO</code> on <code>mailto:</code>), prepare an SMS (<code>ACTION_SENDTO</code> on <code>smsto:</code>), dial a number (<code>ACTION_DIAL</code> on <code>tel:</code>), open a map location (<code>ACTION_VIEW</code> on <code>geo:</code>), insert a contact or calendar event (<code>ACTION_INSERT</code>), or run a web search for an ISBN / product code. In every case, Briskwire™ only constructs the intent and asks Android to dispatch it — it never contacts the receiving app's backend itself. Whatever happens after the hand-off is governed by the receiving app's privacy policy.</p>
+
+        <p>Scan content sits in the App's private storage until you delete it, clear the App's data, or uninstall. The 30-day automatic cleanup described in "Data retention and deletion" applies only to received files from the transfer flows; saved scans are not auto-deleted.</p>
+
+        <h2>Code generation</h2>
+        <p>The Generate screen lets you build a barcode or QR code from a typed payload. You pick a payload kind from the chip strip — URL, Wi-Fi credentials, Contact card, SMS, Email, Phone, Location, Calendar event, Product code, or plain text — and fill the matching form. As you type, the App encodes your fields on-device into the canonical wire form each scanner expects (for example <code>WIFI:T:WPA;S:&lt;ssid&gt;;P:&lt;password&gt;;;</code>, <code>MECARD:</code> or <code>BEGIN:VCARD</code> for contacts, <code>BEGIN:VEVENT</code> for calendar events, <code>mailto:</code>, <code>SMSTO:</code>, <code>tel:</code>, <code>geo:lat,lng</code>) and re-renders the preview bitmap using ZXing.</p>
+
+        <p>Everything the form collects — including Wi-Fi passwords, phone numbers, email addresses, names, contact details, and calendar-event details — lives in the App's memory only, for as long as the Generate screen is open. None of it is persisted to disk, written to a database, or transmitted anywhere. Dismissing the screen, rotating away and not retyping, or closing the App drops the form contents. The preview bitmap is held in memory until you explicitly tap Save (writes the bitmap to a location you pick via the system file picker), Share (hands the bitmap to another app via the system share sheet), or Print (hands the bitmap to <code>androidx.print.PrintHelper</code> and the system print spool — see the "Printing" section below).</p>
+
+        <p>The Generate screen does not require any additional permissions: it never needs camera, NFC, or Wi-Fi access. Detect's <code>CHANGE_WIFI_STATE</code> permission is only used when you tap "Connect" on a <em>scanned</em> Wi-Fi QR — generating a Wi-Fi QR is a pure local encode and does not call the Wi-Fi subsystem.</p>
+
+        <p>The Generate screen can also be opened pre-filled from a scanned code's "Regenerate" button in Detect's detail dialog. In that flow the App reconstructs a structured payload from the scanned bytes and seeds the matching form — again entirely on-device, with the same in-memory-only handling as a manually-typed entry.</p>
+
+        <h2>Printing</h2>
+        <p>You can print a QR code you have generated in the App, or print a thumbnail of a barcode you have scanned. Tapping "Print" hands a bitmap to Android's standard <code>androidx.print.PrintHelper</code>, which opens the system print dialog where you choose a printer. Briskwire™ never communicates with a printer or a cloud-print service itself; once the bitmap is in the system print spool, the print service you select (and its own privacy policy) takes over.</p>
+
+        <h2>"Share to Briskwire™" and "Open with Briskwire™"</h2>
+        <p>Briskwire™ registers itself as a target for Android's standard share sheet (<code>ACTION_SEND</code> and <code>ACTION_SEND_MULTIPLE</code>) and as a handler for opening files (<code>ACTION_VIEW</code> against <code>content://</code> and <code>file://</code> URIs). This means another app on your device — Files, Gallery, Drive, a chat app, etc. — can hand a file (or a piece of text) to Briskwire™ so you can send it on via QR or NFC without having to find it inside Briskwire™ first.</p>
+
+        <p>When you do this, Briskwire™ reads the shared bytes into <em>process memory only</em> (a small in-memory holder, not a file on disk) and shows the protocol picker so you can choose QR or NFC. The bytes are released as soon as the transfer ends, fails, is cancelled, or the App's process is killed. Nothing about the inbound share is logged or transmitted off the device, and the inbound share is never written to the received-files list — that list is for files <em>received</em> from another device, not for files you handed to Briskwire™ from elsewhere on your own phone.</p>
+
+        <p>For oversized payloads, Briskwire™ refuses the share with an on-screen warning rather than buffering it; the data is never written to disk.</p>
+
+        <h2>Data security</h2>
+        <p>Because the App does not transmit user data off the device, there is no network transport to secure. Security is instead enforced at four on-device layers:</p>
+        <ul>
+            <li><strong>Operating-system permission model.</strong> Android itself prevents Briskwire™ from opening sockets or making HTTP requests: the <code>android.permission.INTERNET</code> permission is not declared in the manifest, so no library bundled in the App — first- or third-party — can reach a remote server.</li>
+            <li><strong>App sandbox.</strong> Received files, the metadata database, and the scan-history database live in Briskwire™'s private internal storage (<code>context.filesDir</code>), which the Android runtime isolates from every other app on the device. No other app can read Briskwire™'s storage unless you explicitly export a file or a CSV via the system share sheet or file picker.</li>
+            <li><strong>Short-range local channels only.</strong> The optical (QR) channel requires direct line-of-sight between the two screens and a camera pointed at them. The NFC channel requires the devices to be within a few centimetres of each other, with the sender acting as an HCE service and the receiver in NFC reader mode; there is no pairing, no discovery broadcast, and no persistent association between devices after a transfer ends.</li>
+            <li><strong>Hardened in-app WebView.</strong> The only WebView in the App is the one that renders this privacy policy. It loads the bundled HTML asset from the APK only (<code>file:///android_asset/privacy_policy.html</code>), and has JavaScript, file access, and content access explicitly disabled.</li>
+        </ul>
+        <p>NFC-framed APDU chunks are held in memory only for the duration of the active transfer and discarded when the transfer finishes, fails, or the user cancels.</p>
+
+        <h2>Data retention and deletion</h2>
+        <p><strong>Received files.</strong> Files you receive via the QR or NFC transfer flows are saved in the App's private internal storage at <code>context.filesDir/received/</code>. The App schedules a background <em>cleanup worker</em> via Android's <code>WorkManager</code> that runs roughly once every 24 hours and deletes any received file that is more than <strong>30 days</strong> old, along with its metadata row. Files you have exported are <em>not</em> affected — exports live wherever you saved them (Downloads, Drive, etc.) and are controlled by you. If you want to keep a received file long-term, export it or open it from the file list within 30 days of receiving it.</p>
+
+        <p><strong>Saved barcode scans.</strong> Scans you save in Detect are kept indefinitely until you delete them or clear the App's data. There is no automatic expiry on scan history.</p>
+
+        <p><strong>In-memory transfer state.</strong> QR scan buffers and NFC-framed APDU chunks exist only for the duration of the active transfer and are released as soon as the transfer finishes, fails, or is cancelled.</p>
+
+        <p>You control everything on disk:</p>
+        <ul>
+            <li><strong>Export</strong> a received file or a scan-session CSV to a location of your choice (Downloads, Drive, SD card, a USB drive, anywhere) via Android's standard file picker or share sheet.</li>
+            <li><strong>Open with…</strong> hand a received file to another app (PDF reader, photo viewer, etc.) without copying it first.</li>
+            <li><strong>Delete</strong> a single received file, a single scan, or a whole scan session from the in-app list.</li>
+            <li><strong>Clear app data</strong> — Android Settings → Apps → Briskwire™ → Storage → Clear Data wipes everything: received files, scan history, thumbnails, and the policy-acceptance record.</li>
+        </ul>
+
+        <p>Uninstalling the App deletes everything it has ever stored.</p>
+
+        <h2>Local data on your device</h2>
+
+        <h3>Received-files metadata</h3>
+        <p>For each file you receive, the App records in a local SQLite database:</p>
+        <ul>
+            <li>The file name, as sent by the other device</li>
+            <li>The file's MIME type (inferred from its extension)</li>
+            <li>The file size in bytes</li>
+            <li>The timestamp it was received</li>
+            <li>The path to the file in private app storage</li>
+            <li>The user-chosen export URI, once you export it (so the list shows "Saved to <code>Downloads/…</code>")</li>
+        </ul>
+
+        <h3>Scan history</h3>
+        <p>For each barcode you save in Detect, the App records the fields listed in the "Detect" section above (decoded value, raw bytes, format, value type, timestamp, deduplication hash, thumbnail path, thumbnail dimensions), grouped into named sessions with a start and end timestamp.</p>
+
+        <h3>Privacy-gate acceptance</h3>
+        <p>The version tag of the policy you most recently accepted (e.g. <code>2026-05-13</code>) is stored in a <code>SharedPreferences</code> entry so the App knows whether to re-prompt you when the policy changes.</p>
+
+        <p>None of this metadata ever leaves the device.</p>
+
+        <h2>Third-party libraries</h2>
+        <p>The App uses the following Android libraries. None of them transmit data off the device in the context of Briskwire™'s usage:</p>
+        <ul>
+            <li><strong>Google ML Kit — Barcode Scanning</strong> (bundled, on-device model) — decodes barcodes from camera frames. ML Kit's bundled variant runs entirely on-device and does not contact Google servers. The App does not declare the optional <code>com.google.mlkit.vision.DEPENDENCIES</code> metadata that would trigger any model auto-download flow.</li>
+            <li><strong>AndroidX CameraX</strong> — camera preview and frame analysis. Local frame processing only.</li>
+            <li><strong>OpenCV</strong> — image-processing routines used by an alternative on-device QR decoder. Pure computation, no network.</li>
+            <li><strong>ZXing Core</strong> — QR code bitmap generation for the sender flow and the in-app "Generate code" feature. Pure computation, no network.</li>
+            <li><strong>AndroidX Room</strong> — local SQLite database for received-files metadata and scan history.</li>
+            <li><strong>AndroidX WorkManager</strong> — schedules the local 30-day file-cleanup worker (no network jobs are scheduled).</li>
+            <li><strong>RxJava 2 / RxAndroid</strong> — reactive streams library. Pure computation.</li>
+            <li><strong>Dagger Hilt</strong> — dependency injection framework. Pure computation, no telemetry.</li>
+            <li><strong>Lottie</strong> — renders the onboarding animations from bundled <code>.json</code> asset files only; never fetches animation data from a remote URL.</li>
+            <li><strong>Google Play In-App Review</strong> — see the "Rating the app" section below.</li>
+        </ul>
+        <p>The NFC transfer mode uses <strong>only</strong> the Android operating system's built-in NFC APIs (<code>android.nfc.cardemulation.HostApduService</code> and <code>android.nfc.NfcAdapter</code> reader mode). No third-party NFC library is bundled.</p>
+
+        <h2>External links in the About screen</h2>
+        <p>The About screen inside the App shows tappable rows for the developer's email address, the official project page, the developer's public GitHub profile, and a "Rate the App" shortcut. Tapping any of these hands off to another app on your device — your mail client for the email, your browser for the URLs, or the Play Store for the rating link — via standard Android <code>ACTION_SENDTO</code> and <code>ACTION_VIEW</code> intents. Briskwire™ itself never contacts those endpoints or transmits data to them. Once you tap a link, the resulting traffic is governed by the privacy policy of the receiving app (your mail client, browser, or Play Store), not by Briskwire™'s.</p>
+
+        <h2>Rating the app</h2>
+        <p>After you have completed three successful file transfers (in either QR or NFC mode), the App invokes Google Play's <em>in-app review</em> API to show the standard Play Store rating dialog inside Briskwire™. The trigger condition is evaluated entirely on-device: the App keeps a small counter in <code>SharedPreferences</code> and asks the system for the dialog when the counter reaches three.</p>
+
+        <p>The review dialog itself is rendered by the Google Play Store app running as a separate process on your phone. If you choose to rate or comment, that submission goes from the Play Store to Google's servers under Google's own privacy policy — Briskwire™ has no <code>INTERNET</code> permission and so cannot, and does not, transmit anything itself. If you dismiss the dialog, nothing is sent.</p>
+
+        <h2>Ads, analytics, and crash reporting</h2>
+        <div class="exclusion-box">
+            <p style="margin-bottom: 0;">Briskwire™ contains no ads, no advertising IDs, no tracking SDKs (Firebase Analytics, Crashlytics, Facebook SDK, Mixpanel, Amplitude, etc.), and no affiliate links. Nothing in the App uploads logs, crash reports, or telemetry of any kind.</p>
+        </div>
+        <p>Release builds of the App are post-processed by R8, which strips verbose, debug, and info log calls at build time; only warning- and error-level entries can reach Android's local system log on a shipping APK, and they go no further than the device.</p>
+
+        <h2>Android cloud backup</h2>
+        <p>The App's manifest leaves Android's default Auto Backup behaviour enabled (<code>android:allowBackup="true"</code>). This means that <em>if you have enabled Backup by Google One (or any equivalent backup service) in your phone's System Settings</em>, Android may include Briskwire™'s private storage in your encrypted device backup — that includes received files, scan history, and the privacy-acceptance preference.</p>
+
+        <p>This is the Android operating system's mechanism, not Briskwire™'s, and the backup contents are stored under your Google account, encrypted, and governed by Google's privacy policy. If you would prefer that Briskwire™'s data is not backed up, turn off App data backup for Briskwire™ in System Settings → Google → Backup, or disable cloud backup globally on your device.</p>
+
+        <h2>Children's privacy</h2>
+        <p>The App does not knowingly collect or process data from anyone, including children under the age of 13. Because the App collects no data at all, there is no age-restricted processing.</p>
+
+        <h2>Your rights under GDPR / CCPA</h2>
+        <p>Because Briskwire™ does not collect, store remotely, or process personal data, most GDPR and CCPA rights (access, rectification, erasure, portability, opt-out of sale) do not apply — there is no data to access, rectify, erase, or sell.</p>
+
+        <p>You retain full control over any files, scans, and metadata stored locally by the App. To remove all of it: use the per-item Delete action, Android's "Clear Data" feature, or uninstall the App. No separate data-subject request is needed.</p>
+
+        <h2>Changes to this policy</h2>
+        <p>If this policy changes in any user-affecting way, a new <strong>Policy Version</strong> tag will be published (the "Effective Date" at the top of this page). The App ships with a matching version constant; when the hosted policy version differs from the constant the user previously accepted, the App will present the updated policy on next launch and require acceptance before proceeding.</p>
+
+        <p>The current policy version is <strong><code>2026-05-13</code></strong>.</p>
+
+        <h2>Contact</h2>
+        <p>Questions about this policy or about the App: <a href="mailto:briskwire@gmail.com">briskwire@gmail.com</a>.</p>
+
+        <hr>
+        <p class="footer-note">Briskwire™ — offline peer-to-peer file transfer via animated QR codes or NFC tap, plus on-device barcode scanning.</p>
+
+    </div>
+
+</body>
+</html>

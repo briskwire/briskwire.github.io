@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<!--
+  COPYRIGHT NOTICE
+  © 2026 Rafał Stańczuk. All Rights Reserved.
+
+  This file and all contents are protected by copyright law.
+  Unauthorized copying, distribution, modification, or use is strictly prohibited.
+
+  PROHIBITED ACTIVITIES:
+  - Automated scraping or crawling
+  - AI training data collection
+  - Unauthorized cloning or forking
+  - Reverse engineering
+  - Commercial use without license
+
+  For licensing inquiries: briskwire@gmail.com
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Move any file between two Android phones over animated QR codes or an NFC tap — no Wi-Fi, Bluetooth, internet, or accounts. Plus a full offline barcode scanner (QR, Aztec, EAN, UPC, PDF417, Data Matrix and more) and a code generator for Wi-Fi, contacts, SMS, email and calendar. Works in airplane mode.">
+    <title>Briskwire™ — Offline File Transfer + Barcode Scanner | Android App</title>
+
+    <!-- Search Engine and AI Directives -->
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1, noai, noimageai">
+    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1, noai, noimageai">
+    <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1, noai, noimageai">
+    <meta name="GPTBot" content="noindex, nofollow, noarchive, nosnippet">
+    <meta name="ChatGPT-User" content="noindex, nofollow, noarchive, nosnippet">
+    <meta name="CCBot" content="noindex, nofollow, noarchive, nosnippet">
+    <meta name="anthropic-ai" content="noindex, nofollow, noarchive, nosnippet">
+    <meta name="Claude-Web" content="noindex, nofollow, noarchive, nosnippet">
+    <meta name="ClaudeBot" content="noindex, nofollow, noarchive, nosnippet">
+    <meta name="PerplexityBot" content="noindex, nofollow, noarchive, nosnippet">
+    <meta name="Applebot-Extended" content="noindex, nofollow, noarchive, nosnippet">
+    <meta name="Omgilibot" content="noindex, nofollow, noarchive, nosnippet">
+    <meta name="FacebookBot" content="noindex, nofollow, noarchive, nosnippet">
+    <meta name="Bytespider" content="noindex, nofollow, noarchive, nosnippet">
+    <meta name="Diffbot" content="noindex, nofollow, noarchive, nosnippet">
+    <meta name="dataforseo" content="noindex, nofollow, noarchive, nosnippet">
+    <meta name="AhrefsBot" content="noindex, nofollow, noarchive, nosnippet">
+    <meta name="SemrushBot" content="noindex, nofollow, noarchive, nosnippet">
+    <meta name="Baiduspider" content="noindex, nofollow, noarchive, nosnippet">
+    <meta name="YandexBot" content="noindex, nofollow, noarchive, nosnippet">
+    <meta name="ia_archiver" content="noindex, nofollow, noarchive, nosnippet">
+    <meta name="archive.org_bot" content="noindex, nofollow, noarchive, nosnippet">
+    <meta name="Google-Extended" content="noindex, nofollow, noarchive, nosnippet">
+    <meta name="GoogleOther" content="noindex, nofollow, noarchive, nosnippet">
+    <meta name="Scrapy" content="noindex, nofollow, noarchive, nosnippet">
+    <meta name="Scraper" content="noindex, nofollow, noarchive, nosnippet">
+    <meta name="X-Robots-Tag" content="index, follow, noai, noimageai">
+
+    <!-- Copyright Protection -->
+    <meta name="copyright" content="© 2026 Rafał Stańczuk. All Rights Reserved.">
+    <meta name="author" content="Rafał Stańczuk">
+    <meta name="owner" content="Rafał Stańczuk">
+    <meta name="reply-to" content="briskwire@gmail.com">
+    <meta name="rating" content="general">
+    <meta name="dcterms.rightsHolder" content="Rafał Stańczuk">
+    <meta name="dcterms.rights" content="© 2026 Rafał Stańczuk. All Rights Reserved.">
+    <meta name="dcterms.license" content="Proprietary - All Rights Reserved">
+    <meta name="dcterms.accessRights" content="Restricted">
+
+    <!-- Favicon and App Icons -->
+    <link rel="icon" type="image/svg+xml" href="icons/ic_launcher.svg">
+    <link rel="apple-touch-icon" href="icons/ic_launcher.svg">
+    <link rel="canonical" href="https://briskwire.github.io/">
+    <meta name="keywords" content="Briskwire, QR file transfer, offline file transfer, NFC tap, airplane mode, Android file transfer, no Wi-Fi, no Bluetooth, no internet, privacy, zero data collection, QR scanner, barcode scanner, Aztec, Data Matrix, PDF417, EAN, UPC, barcode generator, file sharing, flight mode">
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Briskwire™ — Offline File Transfer + Barcode Scanner">
+    <meta property="og:description" content="Move any file between two Android phones over QR codes or an NFC tap, scan any barcode, and generate codes from typed fields — all fully offline. No Wi-Fi, Bluetooth, internet, or accounts. Works in airplane mode.">
+    <meta property="og:image" content="https://briskwire.github.io/icons/ic_launcher.svg">
+    <meta property="og:image:width" content="512">
+    <meta property="og:image:height" content="512">
+    <meta property="og:url" content="https://briskwire.github.io/">
+    <meta property="og:site_name" content="Briskwire">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Briskwire™ — Offline File Transfer + Barcode Scanner">
+    <meta name="twitter:description" content="Move any file between two Android phones over QR codes or an NFC tap, scan any barcode, and generate codes from typed fields — all fully offline. No Wi-Fi, Bluetooth, internet, or accounts. Works in airplane mode.">
+    <meta name="twitter:image" content="https://briskwire.github.io/icons/ic_launcher.svg">
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Briskwire",
+      "description": "Offline file transfer between two Android phones via animated QR codes or a back-to-back NFC tap, plus a built-in multi-format barcode scanner and generator — no Wi-Fi, Bluetooth, internet, or account required. Works in airplane mode.",
+      "url": "https://briskwire.github.io/",
+      "downloadUrl": "https://play.google.com/store/apps/details?id=app.briskwire",
+      "operatingSystem": "Android 11+",
+      "applicationCategory": "UtilitiesApplication",
+      "offers": {
+        "@type": "Offer",
+        "price": "2.99",
+        "priceCurrency": "USD"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Rafał Stańczuk",
+        "url": "https://stanczuk.it"
+      },
+      "featureList": "Animated QR file transfer, NFC tap transfer, Multi-format barcode scanner (QR, Aztec, Code 128, Data Matrix, EAN, ITF, PDF417, UPC), Barcode and QR generator, Scan sessions with CSV export, Resume interrupted transfers, Airplane-mode compatible, Zero data collection, No internet access needed, Any file format, On-device scanning, Five languages (English, Polski, Українська, Español, Deutsch), Guided tour",
+      "dateModified": "2026-05-16",
+      "image": "https://briskwire.github.io/icons/ic_launcher.svg"
+    }
+    </script>
+
+    <!-- Fonts & Styles -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <meta name="theme-color" content="#0e1416">
+</head>
+<body>
+    <a href="#main" class="skip-nav">Skip to content</a>
+
+    <!-- Navigation -->
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">
+                    <img src="icons/ic_launcher.svg" alt="" class="logo-icon-img" width="36" height="36">
+                    <span class="logo-text">Briskwire™</span>
+                </div>
+                <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-menu">
+                    <span class="nav-toggle-bar"></span>
+                </button>
+                <div class="nav-links" id="nav-menu" role="menubar">
+                    <a href="#how-it-works" role="menuitem">How it works</a>
+                    <a href="#use-cases" role="menuitem">Use cases</a>
+                    <a href="#features" role="menuitem">Features</a>
+                    <a href="#code-quality" role="menuitem">Privacy</a>
+                    <a href="#screenshots" role="menuitem">Screenshots</a>
+                    <a href="#download" role="menuitem">Download</a>
+                    <a href="#about" role="menuitem">About</a>
+                    <a href="#contact" role="menuitem">Contact</a>
+                    <div class="nav-donation-links" role="group" aria-label="Support the developer">
+                        <a href="https://buycoffee.to/k4r4m84" target="_blank" rel="noopener noreferrer" class="donation-link" title="Support on BuyCoffee.to">
+                            <img src="icons/logo-buycoffee--dark.svg" alt="BuyCoffee.to" class="donation-icon" width="80" height="20">
+                        </a>
+                        <a href="https://buymeacoffee.com/k4r4m84" target="_blank" rel="noopener noreferrer" class="donation-link" title="Support on Buy Me a Coffee">
+                            <img src="icons/bmc-brand-logo.svg" alt="Buy Me a Coffee" class="donation-icon" width="80" height="20">
+                        </a>
+                    </div>
+                </div>
+                <div class="donation-links" role="group" aria-label="Support the developer">
+                    <a href="https://buycoffee.to/k4r4m84" target="_blank" rel="noopener noreferrer" class="donation-link" title="Support on BuyCoffee.to">
+                        <img src="icons/logo-buycoffee--dark.svg" alt="BuyCoffee.to" class="donation-icon" width="80" height="20">
+                    </a>
+                    <a href="https://buymeacoffee.com/k4r4m84" target="_blank" rel="noopener noreferrer" class="donation-link" title="Support on Buy Me a Coffee">
+                        <img src="icons/bmc-brand-logo.svg" alt="Buy Me a Coffee" class="donation-icon" width="80" height="20">
+                    </a>
+                </div>
+            </div>
+            <div class="nav-overlay" aria-hidden="true"></div>
+        </div>
+    </nav>
+
+    <main id="main">
+
+        <!-- Hero Section -->
+        <section class="hero" aria-label="Introduction">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="app-icon-large">
+                        <img src="icons/ic_launcher.svg" alt="Briskwire App Icon" class="app-icon-img" width="120" height="120">
+                    </div>
+                    <h1 class="hero-title">
+                        <span class="hero-brand">Briskwire<span class="hero-brand-tm">™</span></span>
+                        <span class="hero-tagline">File Transfer Through the Air — Literally.</span>
+                    </h1>
+                    <p class="hero-subtitle">
+                        Move any file between two Android phones — just a screen and a camera, or a back-to-back NFC tap.<br>
+                        Scan any barcode — Briskwire opens, dials, mails, connects, or adds to your contacts or calendar via Android.<br>
+                        Generate a code from typed fields — Wi-Fi, contact, SMS, email, calendar, geo, URL, text.<br>
+                        <span class="hero-subtitle-accent">No accounts. No cloud. No internet. Works in airplane mode.</span>
+                    </p>
+                    <div class="hero-stats" aria-label="Key highlights">
+                        <span class="hero-stat">
+                            <img src="icons/airplanemode_active.svg" alt="" aria-hidden="true" style="width:16px;height:16px;filter:brightness(0) saturate(100%) invert(78%) sepia(63%) saturate(325%) hue-rotate(141deg) brightness(95%) contrast(89%);">
+                            <strong>Airplane-mode</strong> compatible
+                        </span>
+                        <span class="hero-stat">
+                            <img src="icons/qr_code_scanner.svg" alt="" aria-hidden="true" style="width:16px;height:16px;filter:brightness(0) saturate(100%) invert(78%) sepia(63%) saturate(325%) hue-rotate(141deg) brightness(95%) contrast(89%);">
+                            <strong>QR</strong> + <strong>NFC</strong> transfer
+                        </span>
+                        <span class="hero-stat">
+                            <img src="icons/public_off.svg" alt="" aria-hidden="true" style="width:16px;height:16px;filter:brightness(0) saturate(100%) invert(78%) sepia(63%) saturate(325%) hue-rotate(141deg) brightness(95%) contrast(89%);">
+                            <strong>No</strong> internet access
+                        </span>
+                    </div>
+                    <div class="hero-buttons">
+                        <a href="https://play.google.com/store/apps/details?id=app.briskwire" class="google-play-badge-link" target="_blank" rel="noopener" aria-label="Get it on Google Play">
+                            <img src="icons/GetItOnGooglePlay_Badge_Web_color_English.svg" alt="Get it on Google Play" class="google-play-badge" width="180" height="54">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works -->
+        <section id="how-it-works" class="how-it-works" aria-label="How it works">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Two ways to transfer, zero networks involved</h2>
+                    <p>Every send lets you choose: show QR codes on one phone's screen and read them with the other's camera — or hold the two phones back-to-back.</p>
+                </div>
+                <div class="flow-steps">
+                    <div class="flow-step fade-in-up">
+                        <div class="flow-step-icon">
+                            <img src="icons/qr_code_scanner.svg" alt="" aria-hidden="true" style="width:32px;height:32px;">
+                        </div>
+                        <span class="flow-step-label">Mode 1 · QR Codes</span>
+                        <h3>Screen ➜ Camera</h3>
+                        <p>One phone displays QR codes on its screen; the other reads them with its camera. Each frame carries its own error-correction and version info, so missed or damaged codes are re-read automatically. Auto-zoom and full brightness keep everything readable.</p>
+                    </div>
+                    <div class="flow-arrow" aria-hidden="true">
+                        <img src="icons/swap.svg" alt="" style="width:40px;height:40px;filter:brightness(0) saturate(100%) invert(78%) sepia(63%) saturate(325%) hue-rotate(141deg) brightness(95%) contrast(89%);">
+                    </div>
+                    <div class="flow-step fade-in-up">
+                        <div class="flow-step-icon">
+                            <img src="icons/nfc.svg" alt="" aria-hidden="true" style="width:32px;height:32px;">
+                        </div>
+                        <span class="flow-step-label">Mode 2 · NFC Tap</span>
+                        <h3>Back ➜ Back</h3>
+                        <p>Hold the two phones back-to-back and the file transfers directly. Range is just a few centimetres, so nothing leaks further than the devices touching. No pairing, no setup, no discovery.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Use Cases Section -->
+        <section id="use-cases" class="features" aria-label="Who Briskwire is for">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Made for the places phones go but the network doesn't</h2>
+                    <p>Briskwire was built for people who keep needing to share files exactly where Wi-Fi, Bluetooth and the cellular network aren't. The kinds of files that matter most in those moments — documents, configs, keys, signed PDFs, small photos — not 4K video. <strong>QR is designed for small files</strong>; <strong>NFC stretches that to small-to-medium</strong>.</p>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card fade-in-up">
+                        <div class="feature-icon">
+                            <img src="icons/hiking.svg" alt="" class="icon-svg" aria-hidden="true">
+                        </div>
+                        <h3>Hikers, climbers &amp; outdoor crews</h3>
+                        <p>You're on a ridge, in the canyon, two valleys past LTE. Hand off a GPX track to a hiking partner, a waypoint list to the group, a route plan or rescue PDF to the support van — small files, screen-to-screen, no signal needed.</p>
+                    </div>
+
+                    <div class="feature-card fade-in-up">
+                        <div class="feature-icon">
+                            <img src="icons/engineering.svg" alt="" class="icon-svg" aria-hidden="true">
+                        </div>
+                        <h3>Field engineers, surveyors &amp; inspectors</h3>
+                        <p>Industrial sites, refineries, substations — anywhere mobile data is banned or simply doesn't reach. Pass measurement files, calibration configs, shift-handover notes and inspection checklists phone-to-phone without bringing a single radio into the area. For larger inspection photos, use NFC tap.</p>
+                    </div>
+
+                    <div class="feature-card fade-in-up">
+                        <div class="feature-icon">
+                            <img src="icons/shield.svg" alt="" class="icon-svg" aria-hidden="true">
+                        </div>
+                        <h3>Privacy-conscious professionals</h3>
+                        <p>Journalists, lawyers, security researchers, founders. Move a contract, a signed PDF, a password database, a private key, a leak — knowing Briskwire has no <code>INTERNET</code> permission and physically cannot send your bytes anywhere but the receiving phone.</p>
+                    </div>
+
+                    <div class="feature-card fade-in-up">
+                        <div class="feature-icon">
+                            <img src="icons/airplanemode_active.svg" alt="" class="icon-svg" aria-hidden="true">
+                        </div>
+                        <h3>Travellers in airplane mode</h3>
+                        <p>On a plane, on a train across a border, in a country whose SIM you don't have. Hand the boarding pass, an itinerary PDF, a small document or contact card to the seat next to you in seconds — no roaming, no shared Wi-Fi, no third-party messenger.</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="features" aria-label="Features">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Designed for privacy. Built to work offline.</h2>
+                    <p>Everything below is already in the app — no placeholders.</p>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card fade-in-up">
+                        <div class="feature-icon">
+                            <img src="icons/airplanemode_active.svg" alt="" class="icon-svg" aria-hidden="true">
+                        </div>
+                        <h3>Works in airplane mode</h3>
+                        <ul>
+                            <li><img src="icons/airplanemode_active.svg" alt="" class="li-icon" aria-hidden="true">Wi-Fi, cellular, and Bluetooth can all be off</li>
+                            <li><img src="icons/public_off.svg" alt="" class="li-icon" aria-hidden="true">No internet access — the app literally can't go online</li>
+                            <li><img src="icons/bluetooth_disabled.svg" alt="" class="li-icon" aria-hidden="true">No Bluetooth or cellular data used</li>
+                            <li><img src="icons/wifi_off.svg" alt="" class="li-icon" aria-hidden="true">Works on a plane, underground — anywhere two phones meet</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-card fade-in-up">
+                        <div class="feature-icon">
+                            <img src="icons/qr_code_scanner.svg" alt="" class="icon-svg" aria-hidden="true">
+                        </div>
+                        <h3>Send files via QR</h3>
+                        <ul>
+                            <li>Any file becomes a short sequence of QR codes on-screen</li>
+                            <li>The receiver's camera reassembles it — no typing, no links</li>
+                            <li>Every frame carries its own error-correction and version info</li>
+                            <li>Dropped or missed codes are re-read automatically</li>
+                            <li>Each transfer is verified end-to-end for accuracy</li>
+                            <li>Best for small files: documents, keys, photos, notes</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-card fade-in-up">
+                        <div class="feature-icon">
+                            <img src="icons/nfc.svg" alt="" class="icon-svg" aria-hidden="true">
+                        </div>
+                        <h3>NFC tap transfer</h3>
+                        <ul>
+                            <li>Hold the two phones back-to-back — range is just a few centimetres</li>
+                            <li>The file moves directly between the devices</li>
+                            <li>No pairing, no broadcast, no setup screens</li>
+                            <li>Every transfer is verified for accuracy</li>
+                            <li>Option is greyed out (not hidden) on phones without NFC</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-card fade-in-up">
+                        <div class="feature-icon">
+                            <img src="icons/shield.svg" alt="" class="icon-svg" aria-hidden="true">
+                        </div>
+                        <h3>Zero data collection</h3>
+                        <ul>
+                            <li><img src="icons/visibility_off.svg" alt="" class="li-icon" aria-hidden="true">No analytics, no crash reports, no telemetry</li>
+                            <li><img src="icons/public_off.svg" alt="" class="li-icon" aria-hidden="true">No ads, no trackers, no advertising IDs</li>
+                            <li><img src="icons/lock.svg" alt="" class="li-icon" aria-hidden="true">Everything happens on your device — nothing leaves it</li>
+                            <li><img src="icons/check_circle.svg" alt="" class="li-icon" aria-hidden="true">GDPR & CCPA compliant by design</li>
+                            <li><img src="icons/description.svg" alt="" class="li-icon" aria-hidden="true">Privacy policy shown on first launch — read before you accept</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-card fade-in-up">
+                        <div class="feature-icon">
+                            <img src="icons/all_inclusive.svg" alt="" class="icon-svg" aria-hidden="true">
+                        </div>
+                        <h3>Any file format</h3>
+                        <ul>
+                            <li>PDFs, photos, text, keys, archives — anything goes</li>
+                            <li>The original file name is kept intact</li>
+                            <li>Files open correctly in the right app on the other side</li>
+                            <li><img src="icons/compress.svg" alt="" class="li-icon" aria-hidden="true">Files are compressed automatically for faster transfer</li>
+                            <li>Share straight from your file manager, gallery, or any app</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-card fade-in-up">
+                        <div class="feature-icon">
+                            <img src="icons/photo_camera.svg" alt="" class="icon-svg" aria-hidden="true">
+                        </div>
+                        <h3>Minimal permissions, no internet</h3>
+                        <ul>
+                            <li><strong>Camera</strong> — only used when scanning QR codes or barcodes</li>
+                            <li><strong>NFC</strong> — only used for back-to-back tap mode</li>
+                            <li><strong>Change Wi-Fi state</strong> — only when you tap Connect on a scanned Wi-Fi QR, to pre-fill the password into Android Settings</li>
+                            <li>The app has no <strong>internet</strong> permission — Android can't let it reach a server</li>
+                            <li>Deny the camera? Sending still works perfectly</li>
+                            <li>Everything runs on your device — no cloud lookups</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-card fade-in-up">
+                        <div class="feature-icon">
+                            <img src="icons/tune.svg" alt="" class="icon-svg" aria-hidden="true">
+                        </div>
+                        <h3>Seven speed presets, plus Custom</h3>
+                        <ul>
+                            <li><strong>Long Range</strong> — most forgiving; scan across a table</li>
+                            <li><strong>Balanced</strong> &middot; <strong>Standard</strong> — sensible middle ground for most cameras</li>
+                            <li><strong>Fast</strong> &middot; <strong>Fastest</strong> — quicker transfers on good cameras at close range</li>
+                            <li><strong>Insane</strong> &middot; <strong>Ultra</strong> — push the channel hard when conditions are perfect</li>
+                            <li><strong>Custom</strong> — hand-tune QR version, error correction, frame timing, compression</li>
+                            <li>Your choice is remembered between sessions</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-card fade-in-up">
+                        <div class="feature-icon">
+                            <img src="icons/center_focus.svg" alt="" class="icon-svg" aria-hidden="true">
+                        </div>
+                        <h3>Smart scanner</h3>
+                        <ul>
+                            <li>Live overlay shows exactly what the camera has locked onto</li>
+                            <li>Auto-zoom lines up the QR codes for you</li>
+                            <li>Auto-focus keeps everything sharp, hands-free</li>
+                            <li>Progress grid shows what's received and what's still coming</li>
+                            <li>Sender's screen stays at full brightness while sending</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-card fade-in-up">
+                        <div class="feature-icon">
+                            <img src="icons/folder.svg" alt="" class="icon-svg" aria-hidden="true">
+                        </div>
+                        <h3>Your received files, your rules</h3>
+                        <ul>
+                            <li><img src="icons/share.svg" alt="" class="li-icon" aria-hidden="true"><strong>Share onward</strong> — pass the file to a third phone</li>
+                            <li><img src="icons/upload.svg" alt="" class="li-icon" aria-hidden="true"><strong>Export</strong> — save anywhere: Downloads, USB drive, cloud</li>
+                            <li><img src="icons/open_in_new.svg" alt="" class="li-icon" aria-hidden="true"><strong>Open in…</strong> — hand off to any app on your phone</li>
+                            <li><img src="icons/delete.svg" alt="" class="li-icon" aria-hidden="true"><strong>Delete</strong> — with confirmation, always</li>
+                            <li><img src="icons/check_circle.svg" alt="" class="li-icon" aria-hidden="true">An "Unsaved" badge flags files you haven't exported yet</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-card fade-in-up">
+                        <div class="feature-icon">
+                            <img src="icons/devices.svg" alt="" class="icon-svg" aria-hidden="true">
+                        </div>
+                        <h3>Resume what you started</h3>
+                        <ul>
+                            <li>Rotate the phone mid-transfer — progress is kept</li>
+                            <li>Switch apps and come back — the scanner picks up where it left off</li>
+                            <li>Interrupted a send? A "Resume" chip appears next time you open the app</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-card fade-in-up">
+                        <div class="feature-icon">
+                            <img src="icons/qr_code_scanner.svg" alt="" class="icon-svg" aria-hidden="true">
+                        </div>
+                        <h3>Detect — universal barcode scanner</h3>
+                        <ul>
+                            <li>Reads QR, Aztec, Codabar, Code 39 / 93 / 128, Data Matrix, EAN-8 / 13, ITF, PDF417, UPC-A / E</li>
+                            <li>Plus <strong>Briskwire™ RGB (single)</strong> — a colored QR that packs about 3× more data than a plain QR. Enable in scanner settings.</li>
+                            <li>Locks onto every code in frame at once — no need to centre one at a time</li>
+                            <li>Runs fully on-device — no cloud lookups, no internet</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-card fade-in-up">
+                        <div class="feature-icon">
+                            <img src="icons/hub.svg" alt="" class="icon-svg" aria-hidden="true">
+                        </div>
+                        <h3>Smart action handoffs</h3>
+                        <p>Detected codes don't just decode — Briskwire reads the type and hands off to the right system app via Android Intents. One tap and the right thing happens:</p>
+                        <ul>
+                            <li><strong>URL</strong> → opens in your default browser</li>
+                            <li><strong>Phone number</strong> → opens the dialer pre-filled</li>
+                            <li><strong>Email (mailto)</strong> → opens your mail app with To / Subject / Body filled in</li>
+                            <li><strong>SMS</strong> → opens messaging with the number and body ready</li>
+                            <li><strong>Geo coordinates</strong> → opens in Maps</li>
+                            <li><strong>vCard / MeCard contact</strong> → "Add to contacts" with all fields parsed</li>
+                            <li><strong>VEVENT / VCALENDAR</strong> → "Add to calendar" with title, time, location, notes</li>
+                            <li><strong>Wi-Fi network</strong> → "Connect" pre-fills SSID + password into system settings</li>
+                            <li>Every action stays on-device — no cloud lookups, no third-party APIs called</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-card fade-in-up">
+                        <div class="feature-icon">
+                            <img src="icons/qr_code_2.svg" alt="" class="icon-svg" aria-hidden="true">
+                        </div>
+                        <h3>Generate typed codes</h3>
+                        <ul>
+                            <li>Pick a type: <strong>Wi-Fi · Contact · SMS · Email · Calendar · Geo · URL · Text</strong></li>
+                            <li>Briskwire builds a valid QR, Aztec, Code 128 (or more) from your fields</li>
+                            <li>Or pick <strong>Briskwire™ RGB (single)</strong> — a colored QR with about 3× the capacity, decodable by Detect when enabled</li>
+                            <li>Tune format, size, and error-correction level</li>
+                            <li>Tap the preview to open it full screen — easy to show or share at a glance</li>
+                            <li>Save the image, share it, send it to a printer, or regenerate</li>
+                            <li>Fully offline — nothing is uploaded</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-card fade-in-up">
+                        <div class="feature-icon">
+                            <img src="icons/schedule.svg" alt="" class="icon-svg" aria-hidden="true">
+                        </div>
+                        <h3>Scan sessions, your way</h3>
+                        <ul>
+                            <li>Detected codes are grouped into named sessions</li>
+                            <li>Rename or delete any session</li>
+                            <li><img src="icons/upload.svg" alt="" class="li-icon" aria-hidden="true">Export a whole session to CSV — open in any spreadsheet</li>
+                            <li>Stored on your device only; clearing app data wipes everything</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-card fade-in-up">
+                        <div class="feature-icon">
+                            <img src="icons/palette.svg" alt="" class="icon-svg" aria-hidden="true">
+                        </div>
+                        <h3>Theme & five languages</h3>
+                        <ul>
+                            <li>Force dark mode, or follow the system</li>
+                            <li>Pick from <strong>English</strong>, <strong>Polski</strong>, <strong>Українська</strong>, <strong>Español</strong>, or <strong>Deutsch</strong></li>
+                            <li>Every screen — sender, scanner, settings, About — fully translated</li>
+                            <li>Applied instantly, persists across restarts</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-card fade-in-up">
+                        <div class="feature-icon">
+                            <img src="icons/science.svg" alt="" class="icon-svg" aria-hidden="true">
+                        </div>
+                        <h3>Guided tour, on demand</h3>
+                        <ul>
+                            <li>A swipeable walkthrough on first run — what each screen does and how the pieces fit together</li>
+                            <li>Contextual hints the first time you open each feature</li>
+                            <li>Replay any time from About → "Start tour"</li>
+                            <li>Artwork follows your dark/light theme</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- RGB density showcase -->
+        <section id="rgb-density" class="how-it-works" aria-label="Color QR vs monochrome">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Want colour instead of just black-and-white?</h2>
+                    <p>Same payload, two encodings. Briskwire's RGB mode (Beta) stacks three independent symbols into the red, green and blue channels of a single frame — roughly 3&times; the density of a plain QR. Phone screens emit RGB; phone cameras see RGB. Briskwire uses all three.</p>
+                </div>
+                <div class="flow-steps">
+                    <div class="flow-step fade-in-up">
+                        <span class="flow-step-label">Plain QR &middot; 1 channel</span>
+                        <img src="screenshots/code_1779011929964.png" alt="Standard black-and-white QR code carrying the sample payload" class="rgb-compare-img" width="240" height="240" loading="lazy">
+                        <h3>Black &amp; white</h3>
+                        <p>One bit per module. The format QR was designed for in 1994 &mdash; readable on cardboard by a laser scanner, but using only one of the three channels your screen and camera already speak.</p>
+                    </div>
+                    <div class="flow-arrow" aria-hidden="true">
+                        <img src="icons/swap.svg" alt="" style="width:40px;height:40px;filter:brightness(0) saturate(100%) invert(78%) sepia(63%) saturate(325%) hue-rotate(141deg) brightness(95%) contrast(89%);">
+                    </div>
+                    <div class="flow-step fade-in-up">
+                        <span class="flow-step-label">Briskwire RGB &middot; 3 channels &middot; Beta</span>
+                        <img src="screenshots/code_1779011893976.png" alt="Briskwire RGB colour QR code carrying the same payload in three stacked channels" class="rgb-compare-img" width="240" height="240" loading="lazy">
+                        <h3>Colour (R + G + B)</h3>
+                        <p>Three QRs stacked in the red, green and blue channels of one image &mdash; roughly 3&times; the data per frame, in the same screen real estate. Best at close range with good light; fountain-coded retransmits quietly cover any colour bleed.</p>
+                    </div>
+                </div>
+                <details class="rgb-compare-reveal">
+                    <summary>Both codes encode the same payload &mdash; tap to reveal &amp; verify</summary>
+                    <blockquote class="rgb-compare-payload">Briskwire&trade;
+File Transfer Through the Air &mdash; Literally.
+Move any file between two Android phones &mdash; just a screen and a camera, or a back-to-back NFC tap.
+Scan any barcode &mdash; Briskwire opens, dials, mails, connects, or adds to your contacts or calendar via Android.
+Generate a code from typed fields &mdash; Wi-Fi, contact, SMS, email, calendar, geo, URL, text.
+No accounts. No cloud. No internet. Works in airplane mode.</blockquote>
+                    <p class="rgb-compare-verify-note">Scan either image with any QR reader and you should see exactly this text. No marketing fluff &mdash; the bytes match.</p>
+                </details>
+            </div>
+        </section>
+
+        <!-- Quality Section -->
+        <section id="code-quality" class="code-quality" aria-label="Privacy by the numbers">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Privacy by the numbers</h2>
+                    <p>No accounts. No trackers. No internet. Everything stays on your phone.</p>
+                </div>
+                <div class="code-quality-content">
+                    <div class="code-quality-stats fade-in-up">
+                        <div class="code-quality-stat">
+                            <div class="code-quality-stat-number">0</div>
+                            <div class="code-quality-stat-label">Internet Access</div>
+                        </div>
+                        <div class="code-quality-stat">
+                            <div class="code-quality-stat-number">0</div>
+                            <div class="code-quality-stat-label">Ads or Trackers</div>
+                        </div>
+                        <div class="code-quality-stat">
+                            <div class="code-quality-stat-number">0</div>
+                            <div class="code-quality-stat-label">Accounts Needed</div>
+                        </div>
+                        <div class="code-quality-stat">
+                            <div class="code-quality-stat-number">100%</div>
+                            <div class="code-quality-stat-label">On-Device Processing</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Screenshots Section -->
+        <section id="screenshots" class="screenshots" aria-label="Screenshots">
+            <div class="container">
+                <div class="section-header">
+                    <h2>See it in action</h2>
+                    <p>Sending, receiving, scanning, generating — every screen runs offline.</p>
+                </div>
+                <div class="screenshots-grid">
+                    <div class="screenshots-empty">Loading screenshots…</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Download Section -->
+        <section id="download" class="download" aria-label="Download">
+            <div class="container">
+                <div class="download-content">
+                    <div class="section-header">
+                        <h2>Get Briskwire™</h2>
+                        <p>Available on Google Play — Android 11 and up</p>
+                    </div>
+                    <div class="download-buttons">
+                        <a href="https://play.google.com/store/apps/details?id=app.briskwire" class="google-play-badge-link" target="_blank" rel="noopener" aria-label="Get it on Google Play">
+                            <img src="icons/GetItOnGooglePlay_Badge_Web_color_English.svg" alt="Get it on Google Play" class="google-play-badge" width="200" height="60">
+                        </a>
+                    </div>
+                    <div class="download-info">
+                        <p>
+                            <img src="icons/airplanemode_active.svg" alt="" aria-hidden="true">
+                            Works in airplane mode
+                        </p>
+                        <p>
+                            <img src="icons/shield.svg" alt="" aria-hidden="true">
+                            Zero data collection
+                        </p>
+                        <p>
+                            <img src="icons/lock.svg" alt="" aria-hidden="true">
+                            No internet access needed
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Release Notes Section -->
+        <section id="release-notes" class="release-notes" aria-label="Release notes">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Release Notes</h2>
+                    <p>What's new across recent Briskwire™ releases.</p>
+                </div>
+                <div id="release-notes-container" class="release-notes-container">
+                    <div class="release-notes-loading">Loading release notes...</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about" aria-label="About">
+            <div class="container">
+                <div class="section-header">
+                    <h2>About Briskwire™</h2>
+                </div>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>Briskwire is the file-transfer app for the moments and places ordinary file-sharing breaks down: a mountain ridge with no signal, a secure facility with Wi-Fi banned, a flight at cruising altitude, a vault with the phone in airplane mode. Most "simple" file-transfer apps quietly phone home, ask for permissions they don't need, or fall apart the second your radios go off. Briskwire doesn't — the app cannot reach the internet at all, because it never asks for permission to. No Wi-Fi, no Bluetooth, no cellular data, no cloud relay, no account, no telemetry.</p>
+
+                        <h3>Why QR codes?</h3>
+                        <p>QR codes are visible, physical, and bounded. There's no pairing to intercept, no discovery broadcast leaking who's around, no network handshake — you can literally see what the other phone is showing, and your phone sees it back. That's the whole trust model. Frames carry their own error-correction so missed or damaged codes recover automatically. This is the app for moving a private key, a signed PDF, a password database, a config bundle, or a photo — not for 4K video.</p>
+
+                        <h3>Privacy on first launch</h3>
+                        <p>The first time you open Briskwire, it shows its privacy policy and asks you to read and accept it before using the app. The policy is bundled with the app — nothing is fetched online. Decline and the app closes cleanly. See the <a href="privacy_policy.html" target="_blank" rel="noopener">privacy policy</a> for the full text.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-hero" id="contact">
+                <div class="footer-hero-brand">
+                    <img src="icons/ic_launcher.svg" alt="" class="footer-hero-icon" width="48" height="48">
+                    <div>
+                        <div class="footer-hero-name">Briskwire™</div>
+                        <div class="footer-hero-tagline">Offline file transfer between two phones — via QR codes or an NFC tap</div>
+                    </div>
+                </div>
+                <a href="https://play.google.com/store/apps/details?id=app.briskwire" class="footer-play-badge" target="_blank" rel="noopener" aria-label="Get it on Google Play">
+                    <img src="icons/GetItOnGooglePlay_Badge_Web_color_English.svg" alt="Get it on Google Play" width="180" height="54">
+                </a>
+            </div>
+
+            <div class="footer-columns">
+                <div class="footer-section">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="#how-it-works">How it works</a></li>
+                        <li><a href="#use-cases">Use cases</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#code-quality">Privacy</a></li>
+                        <li><a href="#screenshots">Screenshots</a></li>
+                        <li><a href="#download">Download</a></li>
+                        <li><a href="#about">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Developer</h4>
+                    <p class="footer-dev-name">Rafał Stańczuk</p>
+                    <ul class="footer-dev-links">
+                        <li>
+                            <a href="mailto:briskwire@gmail.com" class="footer-link-with-icon">
+                                <img src="icons/description.svg" alt="" style="width:18px;height:18px;opacity:0.7;filter:brightness(0) invert(0.8);">
+                                briskwire@gmail.com
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.linkedin.com/in/stanczuk/" target="_blank" rel="noopener" class="footer-logo-link" aria-label="LinkedIn Profile">
+                                <img src="icons/LI-Logo.png" alt="LinkedIn" class="footer-logo-img" width="80" height="21">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/rafalstanczuk" target="_blank" rel="noopener" class="footer-logo-link" aria-label="GitHub Profile">
+                                <img src="icons/GitHub_Logo_White.png" alt="GitHub" class="footer-logo-img" width="80" height="21">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://stanczuk.it" target="_blank" rel="noopener" class="footer-link-with-icon">
+                                <img src="icons/open_in_new.svg" alt="" style="width:18px;height:18px;opacity:0.7;filter:brightness(0) invert(0.8);">
+                                Developer page
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.reddit.com/user/Briskwire/" target="_blank" rel="noopener" class="footer-link-with-icon">
+                                <img src="icons/reddit.svg" alt="" style="width:18px;height:18px;opacity:0.85;filter:brightness(0) invert(0.85);">
+                                Reddit · u/Briskwire
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://x.com/briskwire" target="_blank" rel="noopener" class="footer-link-with-icon">
+                                <img src="icons/x.svg" alt="" style="width:18px;height:18px;opacity:0.85;filter:brightness(0) invert(0.85);">
+                                X · @briskwire
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="privacy_policy.html" target="_blank" rel="noopener">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section" id="support">
+                    <h4>Support the Project</h4>
+                    <p class="footer-support-text">If you enjoy Briskwire, consider buying me a coffee!</p>
+                    <div class="footer-support-links">
+                        <a href="https://buycoffee.to/k4r4m84" target="_blank" rel="noopener noreferrer" class="footer-support-link" title="Support on BuyCoffee.to">
+                            <img src="icons/logo-buycoffee--dark.svg" alt="BuyCoffee.to" class="footer-support-icon" width="120" height="30">
+                        </a>
+                        <a href="https://buymeacoffee.com/k4r4m84" target="_blank" rel="noopener noreferrer" class="footer-support-link" title="Support on Buy Me a Coffee">
+                            <img src="icons/bmc-brand-logo.svg" alt="Buy Me a Coffee" class="footer-support-icon" width="120" height="30">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Rafał Stańczuk. All rights reserved.</p>
+                <p style="opacity:0.7;">Icons from <a href="https://fonts.google.com/icons" target="_blank" rel="noopener noreferrer" style="color: var(--md-sys-color-on-surface-variant);">Google Material Symbols</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- YouTube Video Modal -->
+    <div id="video-modal" class="video-modal" role="dialog" aria-modal="true" aria-label="Video player">
+        <div class="video-modal-backdrop"></div>
+        <div class="video-modal-dialog">
+            <div class="video-modal-header">
+                <span class="video-modal-title" id="video-modal-title"></span>
+                <button class="video-modal-close" id="video-modal-close" aria-label="Close video">
+                    <img src="icons/ic_close.svg" alt="" style="width:24px;height:24px;filter:brightness(0) invert(1);">
+                </button>
+            </div>
+            <div class="video-modal-body">
+                <div class="video-modal-wrapper">
+                    <iframe id="video-modal-iframe" title="Tutorial video" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Screenshot Lightbox Modal -->
+    <div id="screenshot-modal" class="screenshot-modal" role="dialog" aria-modal="true" aria-label="Screenshot viewer">
+        <div class="screenshot-modal-topbar">
+            <div class="screenshot-modal-description" id="screenshot-modal-description"></div>
+            <button class="screenshot-modal-close" aria-label="Close">
+                <img src="icons/ic_close.svg" alt="" class="screenshot-modal-close-icon" aria-hidden="true">
+            </button>
+        </div>
+        <div class="screenshot-modal-container">
+            <button class="screenshot-modal-nav screenshot-modal-nav-left" id="screenshot-modal-prev" aria-label="Previous screenshot">
+                <img src="icons/arrow_back.svg" alt="" class="screenshot-modal-nav-icon" aria-hidden="true">
+            </button>
+            <img class="screenshot-modal-content" id="screenshot-modal-img" alt="Screenshot">
+            <button class="screenshot-modal-nav screenshot-modal-nav-right" id="screenshot-modal-next" aria-label="Next screenshot">
+                <img src="icons/arrow_forward.svg" alt="" class="screenshot-modal-nav-icon" aria-hidden="true">
+            </button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

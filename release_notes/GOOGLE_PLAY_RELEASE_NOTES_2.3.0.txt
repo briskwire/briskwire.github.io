@@ -1,0 +1,12 @@
+New Features:
+• First-run guided tour — walk through Briskwire™, replay any time from About.
+• Contextual hints the first time you open each screen.
+• Retry-code QR updates live as recovery progresses — sheet stays open.
+
+Improvements:
+• Onboarding artwork follows your dark/light theme.
+• Smoother last-frame animations across the tour slides.
+
+Bug Fixes:
+• Retry-code sheet survives screen rotation.
+• Settings dialog labels stay aligned with slider thumbs.

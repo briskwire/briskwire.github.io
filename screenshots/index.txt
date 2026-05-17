@@ -1,0 +1,58 @@
+# Sending a file
+tablet-system-share-open-with-briskwire-target
+tablet-sender-choose-transfer-method-qr-or-nfc
+tablet-sender-generating-qr-frames-progress
+tablet-sender-broadcasting-animated-qr-protocol-v3
+
+# Tuning the transfer
+tablet-sender-qr-transfer-settings-speed-presets
+tablet-sender-qr-transfer-advanced-version-ec-gzip
+
+# Receiving via QR
+phone-receiver-scanning-qr-mid-transfer
+phone-receiver-scanning-qr-progress-grid-camera
+
+# Recovering missing frames
+phone-receiver-frames-missing-replay-qr-dialog
+phone-receiver-frames-missing-replay-qr-shown-to-sender
+tablet-sender-retransmitting-missing-frames-cycle
+phone-receiver-scanning-resuming-after-retransmission
+
+# Received files
+phone-receiver-empty-inbox
+phone-receiver-inbox-single-unsaved-file
+phone-receiver-inbox-multiple-unsaved-files
+phone-receiver-file-actions-share-save-open-delete
+
+# Detect — scan codes & trigger Android actions
+phone-scanner-multi-code-detection-camera-view
+phone-scanner-multi-code-printed-codes-real-photo
+phone-scanner-code-detail-upc-a-product-barcode
+phone-scanner-code-detail-calendar-event-vevent
+phone-scanner-code-detail-calendar-add-to-calendar
+phone-scanner-code-detail-vcard-contact-add-to-contacts
+phone-scanner-code-detail-mecard-contact-add-to-contacts
+phone-scanner-code-detail-wifi-network-connect
+phone-scanner-code-detail-qr-text-281-bytes
+phone-scanner-code-detail-qr-text-session-pair-with-rgb
+phone-scanner-code-detail-briskwire-rgb-experimental
+
+# Generate codes
+phone-generate-code-aztec-from-text-save-share-print
+phone-generate-code-bw-qr-live-preview
+phone-generate-code-briskwire-rgb-experimental-live-preview
+phone-generate-code-contact-mecard-form
+phone-generate-code-sms-form
+phone-generate-code-email-form
+
+# Scan sessions
+phone-scanner-saved-sessions-list-two-entries
+phone-scanner-saved-sessions-three-entries-history
+phone-scanner-session-actions-options-dialog
+phone-scanner-session-actions-export-csv-delete
+
+# Settings
+phone-settings-bottom-sheet-theme-and-language
+
+# About
+phone-about-briskwire-portrait-overview

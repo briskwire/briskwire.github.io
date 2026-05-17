@@ -1,0 +1,11 @@
+New Features:
+• Tap the preview code in Generate — opens it full screen. Tap the image again to close.
+
+Improvements:
+• Text fields in Generate now expand line-by-line as you type instead of showing a fixed scroll box.
+• Contact form: enter phone numbers and emails one per line.
+• Calendar: start and end buttons show the date and time you just picked.
+
+Bug Fixes:
+• URL fields no longer show a password eye icon.
+• Calendar date picker reopens pre-set to the last date you picked.

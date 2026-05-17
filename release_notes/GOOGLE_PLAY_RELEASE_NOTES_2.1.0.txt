@@ -1,0 +1,16 @@
+New Features:
+• Faster transfers — new BriskFrame and QR RGB modes (Beta) up to 3× quicker than plain QR.
+• Frame loss recovery — built-in fountain coding fills small gaps automatically.
+• Retry code — when frames are missing, show a small QR back to the sender and it re-broadcasts just those parts.
+• Smarter scanner — adapts resolution, focus, and zoom on the fly.
+• Per-frame progress dots — see exactly which frames have arrived.
+
+Improvements:
+• Looking away briefly no longer resets the scan — received frames are kept.
+• More reliable on older phones — fixes memory crashes on dense scans.
+• Clearer accessibility (hollow rings show missing frames, not just colour).
+
+Bug Fixes:
+• Settings dialog crash on certain themes.
+• Retry button now shows a message when there's nothing to re-encode.
+• Retry QR renders reliably for any number of missing frames.
