@@ -212,12 +212,12 @@
         <h1>Privacy Policy</h1>
 
         <div class="meta-info">
-            <p><strong>Effective Date:</strong> 2026-05-15</p>
-            <p><strong>Policy Version:</strong> <code>2026-05-15</code></p>
+            <p><strong>Effective Date:</strong> 2026-08-19</p>
+            <p><strong>Policy Version:</strong> <code>2026-08-19</code></p>
             <p><strong>Application:</strong> Briskwire™</p>
             <p><strong>Developer:</strong> Rafał Stańczuk</p>
             <p><strong>Contact:</strong> <a href="mailto:briskwire@gmail.com">briskwire@gmail.com</a></p>
-            <p><strong>Canonical URL:</strong> <a href="https://briskwire.github.io/privacy_policy.html"><code>https://briskwire.github.io/privacy_policy.html</code></a></p>
+            <p><strong>Canonical URL:</strong> <a href="https://drive.google.com/file/d/1-685MrLmk9rEVfZuWRFr-TMIAd2vMFhJ/"><code>https://drive.google.com/file/d/1-685MrLmk9rEVfZuWRFr-TMIAd2vMFhJ/</code></a></p>
         </div>
 
         <div class="summary-box">
@@ -228,7 +228,7 @@
         <h2>Introduction</h2>
         <p>Briskwire™ ("the App") is an offline tool with four user-visible capabilities:</p>
         <ul>
-            <li><strong>Animated-QR file transfer</strong> — one device displays a sequence of QR codes on its screen; the other device scans them with its camera and reassembles the original file.</li>
+            <li><strong>Animated-QR file transfer</strong> — one device displays a sequence of QR codes on its screen; the other device scans them with its camera and reassembles the original file. You can optionally protect the transfer with end-to-end encryption (see "Encrypted transfers" below).</li>
             <li><strong>NFC-tap file transfer</strong> — the two devices are held back-to-back and the file is streamed over the short-range NFC radio using Android's built-in Host Card Emulation (HCE) and Reader Mode APIs. Range is a few centimetres; no pairing, no discovery broadcasts.</li>
             <li><strong>Detect</strong> — a general-purpose barcode scanner that decodes any QR, EAN, UPC, Code-128, Code-39, Code-93, Codabar, ITF, Aztec, Data Matrix, or PDF417 code your camera sees. Decoded content is kept in a local on-device session list until you delete it.</li>
             <li><strong>Code generation ("Generate")</strong> — build a QR or barcode from a typed payload (URL, Wi-Fi credentials, contact card, SMS, email, phone, geographic location, calendar event, product code, or plain text). The preview bitmap re-renders on-device as you type; nothing is persisted to disk and nothing is transmitted off the device.</li>
@@ -262,6 +262,27 @@
         <p>The App does not declare the <code>android.permission.INTERNET</code> permission in its manifest. Android therefore cannot let the App open a network socket or make an HTTP request, period. No library bundled in the App — first- or third-party — can reach a remote server. This is enforced by the operating system, not by the App's own code.</p>
 
         <p>All file transfer between two devices happens entirely through local, short-range channels: either the optical channel (one screen, one camera) or the NFC radio (Host Card Emulation on the sender, Reader Mode on the receiver). No Bluetooth, no Wi-Fi, no Wi-Fi Direct, no cellular data. The NFC channel carries framed APDU chunks directly between the two devices' NFC controllers; the bytes never touch the internet or any backend service.</p>
+
+        <h2>Encrypted transfers (optional)</h2>
+        <p>When you send a file over the QR (screen-and-camera) channel, the App asks whether to send it <strong>plain</strong> or <strong>end-to-end encrypted</strong>. If you choose encrypted, the file's bytes are protected so that only the receiving device you paired with can read them — even though the transfer still happens entirely offline, with no server involved.</p>
+
+        <p>How the encrypted mode works, step by step:</p>
+        <ul>
+            <li>The <strong>receiving</strong> device generates a fresh, one-time cryptographic key pair and displays its public half as a <em>key code</em> (a QR code) on its screen.</li>
+            <li>The <strong>sending</strong> device scans that key code with its camera, generates its own one-time key pair, and both devices independently derive the same secret session key using the X25519 key-agreement algorithm and HKDF-SHA256 key derivation.</li>
+            <li>The file is then encrypted with <strong>AES-256-GCM</strong> (authenticated encryption) before being split into QR frames. The receiver decrypts it after reassembly. Any tampering with the ciphertext makes decryption fail outright.</li>
+            <li>Both devices display the same <strong>6-digit security code</strong> derived from the session key. Comparing the two codes by eye and confirming the match verifies that no third device inserted itself between you (a "man-in-the-middle" check).</li>
+        </ul>
+
+        <p>Privacy properties of this design:</p>
+        <ul>
+            <li><strong>Keys are ephemeral.</strong> Both key pairs and the derived session key are generated in memory for one transfer session only. They are never written to disk, never reused, and are discarded when the transfer completes, fails, or is cancelled.</li>
+            <li><strong>No key escrow.</strong> The keys exist only on your two devices for the duration of the session. The developer holds no keys and has no ability to decrypt any transfer — and since the App has no network access, key material could not leave the device even in principle.</li>
+            <li><strong>Fully offline.</strong> The key exchange itself travels over the same short-range optical channel (one screen, one camera) as the file. Nothing about the handshake touches a network.</li>
+            <li><strong>Your choice per transfer.</strong> Encryption is offered, not forced: you pick plain or encrypted for each send. Plain transfers behave exactly as described elsewhere in this policy.</li>
+        </ul>
+
+        <p><strong>NFC transfers are not end-to-end encrypted</strong> in this version of the App. The NFC channel instead relies on its physical properties — it works only across a few centimetres, with the devices effectively touching. If you want cryptographic protection for a transfer, use the QR channel's encrypted mode.</p>
 
         <h2>Permissions requested</h2>
         <p>Briskwire™ declares exactly <strong>three</strong> permissions, each tied to a single user-visible feature:</p>
@@ -319,11 +340,12 @@
         <p>For oversized payloads, Briskwire™ refuses the share with an on-screen warning rather than buffering it; the data is never written to disk.</p>
 
         <h2>Data security</h2>
-        <p>Because the App does not transmit user data off the device, there is no network transport to secure. Security is instead enforced at four on-device layers:</p>
+        <p>Because the App does not transmit user data off the device, there is no network transport to secure. Security is instead enforced at five on-device layers:</p>
         <ul>
             <li><strong>Operating-system permission model.</strong> Android itself prevents Briskwire™ from opening sockets or making HTTP requests: the <code>android.permission.INTERNET</code> permission is not declared in the manifest, so no library bundled in the App — first- or third-party — can reach a remote server.</li>
             <li><strong>App sandbox.</strong> Received files, the metadata database, and the scan-history database live in Briskwire™'s private internal storage (<code>context.filesDir</code>), which the Android runtime isolates from every other app on the device. No other app can read Briskwire™'s storage unless you explicitly export a file or a CSV via the system share sheet or file picker.</li>
             <li><strong>Short-range local channels only.</strong> The optical (QR) channel requires direct line-of-sight between the two screens and a camera pointed at them. The NFC channel requires the devices to be within a few centimetres of each other, with the sender acting as an HCE service and the receiver in NFC reader mode; there is no pairing, no discovery broadcast, and no persistent association between devices after a transfer ends.</li>
+            <li><strong>Optional end-to-end encryption.</strong> QR transfers can additionally be encrypted with AES-256-GCM under an ephemeral session key agreed via X25519, with a 6-digit security code for verifying the pairing — see the "Encrypted transfers" section above. Key material lives in memory only and is discarded when the session ends.</li>
             <li><strong>Hardened in-app WebView.</strong> The only WebView in the App is the one that renders this privacy policy. It loads the bundled HTML asset from the APK only (<code>file:///android_asset/privacy_policy.html</code>), and has JavaScript, file access, and content access explicitly disabled.</li>
         </ul>
         <p>NFC-framed APDU chunks are held in memory only for the duration of the active transfer and discarded when the transfer finishes, fails, or the user cancels.</p>
@@ -362,7 +384,7 @@
         <p>For each barcode you save in Detect, the App records the fields listed in the "Detect" section above (decoded value, raw bytes, format, value type, timestamp, deduplication hash, thumbnail path, thumbnail dimensions), grouped into named sessions with a start and end timestamp.</p>
 
         <h3>Privacy-gate acceptance</h3>
-        <p>The version tag of the policy you most recently accepted (e.g. <code>2026-05-13</code>) is stored in a <code>SharedPreferences</code> entry so the App knows whether to re-prompt you when the policy changes.</p>
+        <p>The version tag of the policy you most recently accepted (e.g. <code>2026-08-19</code>) is stored in a <code>SharedPreferences</code> entry so the App knows whether to re-prompt you when the policy changes.</p>
 
         <p>None of this metadata ever leaves the device.</p>
 
@@ -375,6 +397,7 @@
             <li><strong>ZXing Core</strong> — QR code bitmap generation for the sender flow and the in-app "Generate code" feature. Pure computation, no network.</li>
             <li><strong>AndroidX Room</strong> — local SQLite database for received-files metadata and scan history.</li>
             <li><strong>AndroidX WorkManager</strong> — schedules the local 30-day file-cleanup worker (no network jobs are scheduled).</li>
+            <li><strong>Google Tink</strong> — supplies the X25519 key-agreement primitive for the optional encrypted transfer mode. Pure on-device cryptography; no network, no key storage.</li>
             <li><strong>RxJava 2 / RxAndroid</strong> — reactive streams library. Pure computation.</li>
             <li><strong>Dagger Hilt</strong> — dependency injection framework. Pure computation, no telemetry.</li>
             <li><strong>Lottie</strong> — renders the onboarding animations from bundled <code>.json</code> asset files only; never fetches animation data from a remote URL.</li>
@@ -412,7 +435,7 @@
         <h2>Changes to this policy</h2>
         <p>If this policy changes in any user-affecting way, a new <strong>Policy Version</strong> tag will be published (the "Effective Date" at the top of this page). The App ships with a matching version constant; when the hosted policy version differs from the constant the user previously accepted, the App will present the updated policy on next launch and require acceptance before proceeding.</p>
 
-        <p>The current policy version is <strong><code>2026-05-13</code></strong>.</p>
+        <p>The current policy version is <strong><code>2026-08-19</code></strong>.</p>
 
         <h2>Contact</h2>
         <p>Questions about this policy or about the App: <a href="mailto:briskwire@gmail.com">briskwire@gmail.com</a>.</p>
