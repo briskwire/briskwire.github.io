@@ -1,0 +1,11 @@
+New Features:
+• Encrypted transfers — the receiver shows a key code, you scan it, then both screens show a 6-digit security code to compare before the file opens.
+• Choose plain or encrypted every time you send.
+
+Improvements:
+• Briskwire™ no longer requests internet access at all.
+• Rotating mid-scan no longer restarts camera tuning.
+
+Bug Fixes:
+• A retry code from another transfer can no longer hijack the sender.
+• The scanner recovers after a failed transfer instead of getting stuck.

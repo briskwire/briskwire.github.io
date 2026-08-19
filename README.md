@@ -4,11 +4,11 @@ Public landing page for **Briskwire™** — an offline Android app that moves f
 between two phones via animated QR codes or a back-to-back NFC tap, scans any
 barcode, and generates codes from typed fields. Works in airplane mode.
 
-Live at <https://briskwire.github.io>. Hosted on GitHub Pages.
+Live at <https://briskwire.app>. Hosted on GitHub Pages.
 
 ## ⚠️ Proprietary — All Rights Reserved
 
-© 2024-2026 Rafał Stańczuk. This repository is proprietary and is published
+© 2026 Rafał Stańczuk. This repository is proprietary and is published
 here solely so that GitHub Pages can serve the landing page at the canonical
 URL. All source, markup, copy, and media are protected by copyright law.
 
@@ -36,7 +36,7 @@ EAN, UPC, PDF417, Data Matrix and more) with smart action handoffs, plus a
 typed-code generator for Wi-Fi, contact, SMS, email, calendar, geo, URL and
 text — all fully on-device.
 
-See the [Privacy Policy](https://briskwire.github.io/privacy_policy.html) for
+See the [Privacy Policy](https://briskwire.app/privacy_policy.html) for
 the full data posture.
 
 ## Credits

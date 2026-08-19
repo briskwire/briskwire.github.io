@@ -14,3 +14,5 @@ Bug Fixes:
 • Settings dialog crash on certain themes.
 • Retry button now shows a message when there's nothing to re-encode.
 • Retry QR renders reliably for any number of missing frames.
+
+Note (2026-08): "up to 3× quicker" described the RGB modes' 3× per-frame channel capacity. Measured end-to-end speed is decoder-bound and closely matches plain QR for now — a channel-parallel decoder is on the roadmap.

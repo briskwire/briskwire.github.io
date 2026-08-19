@@ -4,6 +4,13 @@ tablet-sender-choose-transfer-method-qr-or-nfc
 tablet-sender-generating-qr-frames-progress
 tablet-sender-broadcasting-animated-qr-protocol-v3
 
+# Encrypted transfer
+phone-sender-encrypt-choice-plain-or-encrypted
+phone-receiver-encrypted-receive-key-code
+phone-sender-scan-encryption-code
+phone-sender-encrypted-broadcast-security-code
+phone-receiver-confirm-security-code-match
+
 # Tuning the transfer
 tablet-sender-qr-transfer-settings-speed-presets
 tablet-sender-qr-transfer-advanced-version-ec-gzip

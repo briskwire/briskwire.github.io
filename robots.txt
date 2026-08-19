@@ -107,4 +107,4 @@ User-agent: *
 Disallow: /
 
 # Sitemap
-Sitemap: https://briskwire.github.io/sitemap.xml
+Sitemap: https://briskwire.app/sitemap.xml

@@ -1,0 +1,4 @@
+Improvements:
+• Codec picker labels updated to final branding — "BriskWireFrame Mono/RGB" and "Briskwire™ QR RGB".
+• "Briskwire™ RGB (single)" format name corrected in the scanner.
+• Experimental codecs are now hidden in release builds while they mature in Beta.
