@@ -1,6 +1,5 @@
 # Sending a file
 tablet-system-share-open-with-briskwire-target
-tablet-sender-choose-transfer-method-qr-or-nfc
 tablet-sender-generating-qr-frames-progress
 tablet-sender-broadcasting-animated-qr-protocol-v3
 

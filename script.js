@@ -101,6 +101,16 @@
     const grid = document.querySelector('.screenshots-grid');
     if (!grid) return;
 
+    // The grid is pre-rendered in index.html (static markup for crawlers and
+    // no-JS visitors). When it is present, just wire up the lightbox and skip
+    // the fetch-based build below, which remains as a fallback.
+    const preRendered = Array.from(grid.querySelectorAll('.screenshot-item'));
+    if (preRendered.length) {
+      screenshotItems = preRendered;
+      initLightbox();
+      return;
+    }
+
     try {
       const resp = await fetch('screenshots/index.txt');
       if (!resp.ok) throw new Error('no-index');

@@ -1,7 +1,7 @@
 # Briskwire™ — Landing Page
 
 Public landing page for **Briskwire™** — an offline Android app that moves files
-between two phones via animated QR codes or a back-to-back NFC tap, scans any
+between two phones via animated QR codes, scans any
 barcode, and generates codes from typed fields. Works in airplane mode.
 
 Live at <https://briskwire.app>. Hosted on GitHub Pages.
@@ -27,7 +27,7 @@ URL. All source, markup, copy, and media are protected by copyright law.
 ## About the app
 
 Briskwire™ moves any file between two Android phones using nothing but the
-screen and camera, or a back-to-back NFC tap. No Wi-Fi, no Bluetooth, no
+screen and camera. No Wi-Fi, no Bluetooth, no
 internet, no account. Works in airplane mode.
 `android.permission.INTERNET` is not declared in the manifest.
 

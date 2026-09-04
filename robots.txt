@@ -23,6 +23,68 @@ User-agent: Slurp
 Allow: /
 Disallow: /local/
 
+User-agent: Qwantbot
+Allow: /
+Disallow: /local/
+
+User-agent: SeznamBot
+Allow: /
+Disallow: /local/
+
+User-agent: Yeti
+Allow: /
+Disallow: /local/
+
+# Google auxiliary crawlers: image search, Search Console URL inspection,
+# Play Store link checks (privacy-policy URL), Google-Site-Verification
+User-agent: Googlebot-Image
+Allow: /
+Disallow: /local/
+
+User-agent: Google-InspectionTool
+Allow: /
+
+User-agent: Storebot-Google
+Allow: /
+
+User-agent: Google-Site-Verification
+Allow: /
+
+# Link-preview fetchers — they obey robots.txt and need the page + og:image
+# to render a card when the URL is shared. These are not training crawlers.
+User-agent: Twitterbot
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Meta-ExternalFetcher
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: Slackbot-LinkExpanding
+Allow: /
+
+User-agent: Discordbot
+Allow: /
+
+User-agent: TelegramBot
+Allow: /
+
+User-agent: WhatsApp
+Allow: /
+
+User-agent: redditbot
+Allow: /
+
+User-agent: Pinterestbot
+Allow: /
+
+User-agent: Mastodon
+Allow: /
+
 # Block AI training bots
 User-agent: GPTBot
 Disallow: /
@@ -61,6 +123,9 @@ User-agent: Omgilibot
 Disallow: /
 
 User-agent: FacebookBot
+Disallow: /
+
+User-agent: Meta-ExternalAgent
 Disallow: /
 
 User-agent: Applebot-Extended
