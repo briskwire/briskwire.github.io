@@ -74,7 +74,6 @@
     <link rel="manifest" href="manifest.webmanifest">
     <meta name="application-name" content="Briskwire">
     <meta name="apple-mobile-web-app-title" content="Briskwire">
-    <meta name="keywords" content="Briskwire, QR file transfer, offline file transfer, airplane mode, Android file transfer, no Wi-Fi, no Bluetooth, no internet, encrypted file transfer, end-to-end encryption, privacy, zero data collection, QR scanner, barcode scanner, Aztec, Data Matrix, PDF417, EAN, UPC, barcode generator, file sharing, flight mode">
 
     <!-- Open Graph / Social Media -->
     <meta property="og:type" content="website">
@@ -112,7 +111,8 @@
             "@type": "ImageObject",
             "url": "https://briskwire.app/icons/icon-512.png",
             "width": 512,
-            "height": 512
+            "height": 512,
+            "contentUrl": "https://briskwire.app/icons/icon-512.png"
           },
           "email": "briskwire@gmail.com",
           "founder": {
@@ -171,17 +171,17 @@
               "@id": "https://stanczuk.it/#person"
             },
             "copyrightNotice": "© 2026 Rafał Stańczuk",
-            "creditText": "Briskwire™"
+            "creditText": "Briskwire™",
+            "license": "https://briskwire.app/image-license.html",
+            "acquireLicensePage": "https://briskwire.app/image-license.html#request",
+            "contentUrl": "https://briskwire.app/icons/og-image.png"
           },
           "inLanguage": "en",
           "datePublished": "2026-05-17T12:25:56+02:00",
-          "dateModified": "2026-09-16T10:30:00+02:00"
+          "dateModified": "2026-09-20T20:27:00+02:00"
         },
         {
-          "@type": [
-            "SoftwareApplication",
-            "MobileApplication"
-          ],
+          "@type": "CreativeWork",
           "@id": "https://briskwire.app/#app",
           "name": "Briskwire™",
           "alternateName": "Briskwire",
@@ -195,7 +195,8 @@
               "caption": "Sender broadcasting",
               "description": "The sender's screen displays the file as an animated QR sequence — the other phone's camera reads it back into the original bytes.",
               "width": 800,
-              "height": 1280
+              "height": 1280,
+              "contentUrl": "https://briskwire.app/screenshots/tablet-sender-broadcasting-animated-qr-protocol-v3.png"
             },
             {
               "@type": "ImageObject",
@@ -203,7 +204,8 @@
               "caption": "Receiver scanning",
               "description": "The receiver's camera reassembles the file frame by frame. A progress grid shows which parts have arrived and which are still coming.",
               "width": 720,
-              "height": 1560
+              "height": 1560,
+              "contentUrl": "https://briskwire.app/screenshots/phone-receiver-scanning-qr-progress-grid-camera.png"
             },
             {
               "@type": "ImageObject",
@@ -211,7 +213,8 @@
               "caption": "Encrypted broadcast, code on screen",
               "description": "The animated transfer runs as usual, but every frame is ciphertext. The 🔒 badge keeps the six-digit security code visible for comparing.",
               "width": 800,
-              "height": 1280
+              "height": 1280,
+              "contentUrl": "https://briskwire.app/screenshots/phone-sender-encrypted-broadcast-security-code.png"
             },
             {
               "@type": "ImageObject",
@@ -219,7 +222,8 @@
               "caption": "Detect — multi-format scanner",
               "description": "Read QR, Aztec, Data Matrix, PDF417, EAN, UPC, Code 128 and more — all offline. The scanner locks onto every code in frame at once.",
               "width": 720,
-              "height": 1560
+              "height": 1560,
+              "contentUrl": "https://briskwire.app/screenshots/phone-scanner-multi-code-detection-camera-view.png"
             },
             {
               "@type": "ImageObject",
@@ -227,7 +231,8 @@
               "caption": "Generate — plain QR live preview",
               "description": "Generate screen showing a live preview of a plain black-and-white QR for a long-text payload. The preview tile updates as you type.",
               "width": 720,
-              "height": 1560
+              "height": 1560,
+              "contentUrl": "https://briskwire.app/screenshots/phone-generate-code-bw-qr-live-preview.png"
             }
           ],
           "downloadUrl": "https://play.google.com/store/apps/details?id=app.briskwire",
@@ -275,7 +280,8 @@
             "Five languages: English, Polish, Ukrainian, Spanish, German",
             "Guided tour"
           ],
-          "dateModified": "2026-09-16T10:30:00+02:00"
+          "dateModified": "2026-09-20T20:27:00+02:00",
+          "additionalType": "https://schema.org/MobileApplication"
         }
       ]
     }
@@ -1214,6 +1220,7 @@ No accounts. No cloud. No internet. Works in airplane mode.</blockquote>
                     <h4>Legal</h4>
                     <ul>
                         <li><a href="privacy_policy.html" target="_blank" rel="noopener">Privacy Policy</a></li>
+                        <li><a href="image-license.html" target="_blank" rel="noopener">Image licence</a></li>
                     </ul>
                 </div>
                 <div class="footer-section" id="support">
