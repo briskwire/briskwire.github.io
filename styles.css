@@ -536,10 +536,16 @@ body.menu-open { overflow: hidden; }
 }
 .flow-arrow svg { width: 40px; height: 40px; color: inherit; }
 
+/* The two codes must be scannable, not just visible. Each <img> carries its
+   size in the HTML at a whole number of pixels per module: the plain QR 1:1
+   (3 px), the RGB code at half its file (4 px). A fractional nearest-neighbour
+   shrink drops and doubles module rows, and the fixed 220 px box this replaced
+   (198 px inside its padding) left the plain QR unreadable. content-box keeps
+   the padding outside those pixels. */
 .rgb-compare-img {
-  width: 220px;
-  height: 220px;
-  max-width: 100%;
+  box-sizing: content-box;
+  max-width: calc(100% - 22px);
+  height: auto;
   border-radius: var(--md-sys-shape-md);
   background: #fff;
   padding: 10px;
