@@ -430,6 +430,233 @@
   }
 
   // ============================================================
+  // 6b. DESKTOP RELEASES — downloads/desktop-releases.json + GitHub
+  // ============================================================
+  // Two sources, merged by version:
+  //  - downloads/desktop-releases.json, written by the release pipeline
+  //    after it has checked GitHub's signature on the checksum commit. Only
+  //    these entries get the "Verified" line.
+  //  - the public repo's releases from api.github.com, so a release the
+  //    manifest does not list yet still shows, with GitHub's own SHA-256 per
+  //    file. When both list a file and the hashes differ, the release is
+  //    flagged and its download buttons are withheld.
+  // Built with DOM nodes, not HTML strings, and every URL, hash and key ID
+  // is checked before use: a link on this page is a download someone will
+  // install.
+  const DESKTOP_REPO = 'https://github.com/briskwire/briskwire-releases';
+  const DESKTOP_API = 'https://api.github.com/repos/briskwire/briskwire-releases/releases?per_page=30';
+  const DESKTOP_FORMATS = {
+    'deb': { label: '.deb', hint: 'Ubuntu, Debian, Mint' },
+    'rpm': { label: '.rpm', hint: 'Fedora, openSUSE' },
+    'tar.gz': { label: '.tar.gz', hint: 'Portable, any distro' }
+  };
+
+  function el(tag, attrs, ...children) {
+    const node = document.createElement(tag);
+    Object.entries(attrs || {}).forEach(([k, v]) => {
+      if (k === 'class') node.className = v; else node.setAttribute(k, v);
+    });
+    children.flat().forEach(c => { if (c != null) node.append(c); });
+    return node;
+  }
+
+  const isRepoUrl = u => typeof u === 'string' && u.startsWith(DESKTOP_REPO + '/');
+  const isSha256 = h => /^[0-9a-f]{64}$/.test(h || '');
+  const isKeyId = k => /^[0-9A-F]{16}$/.test(k || '');
+
+  function formatSize(bytes) {
+    if (!(bytes > 0)) return '';
+    return bytes >= 1048576 ? `${Math.round(bytes / 1048576)} MB` : `${Math.max(1, Math.round(bytes / 1024))} KB`;
+  }
+
+  function formatDate(iso) {
+    const d = new Date(`${iso}T00:00:00Z`);
+    return isNaN(d) ? '' : d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' });
+  }
+
+  function copyButton(text, label) {
+    const btn = el('button', { type: 'button', class: 'desktop-copy', 'aria-label': `Copy ${label}` }, 'Copy');
+    btn.addEventListener('click', async () => {
+      try { await navigator.clipboard.writeText(text); btn.textContent = 'Copied'; }
+      catch { btn.textContent = 'Select it'; }
+      setTimeout(() => { btn.textContent = 'Copy'; }, 1600);
+    });
+    return btn;
+  }
+
+  function formatOf(name) {
+    if (name.endsWith('.deb')) return 'deb';
+    if (name.endsWith('.rpm')) return 'rpm';
+    if (name.endsWith('.tar.gz')) return 'tar.gz';
+    if (name.endsWith('.cdx.json')) return 'sbom';
+    return null;
+  }
+
+  // One GitHub API release in the manifest's shape. `digest` is GitHub's own
+  // "sha256:<hex>" for each uploaded file; a file without one is skipped
+  // rather than shown with no checksum.
+  function fromGitHub(r) {
+    const m = /^v(\d+\.\d+\.\d+)$/.exec(r.tag_name || '');
+    if (!m || r.draft || r.prerelease) return null;
+    const files = r.assets || [];
+    const sums = files.find(a => a.name === 'SHA256SUMS-desktop.txt');
+    return {
+      version: m[1], tag: r.tag_name, date: (r.published_at || '').slice(0, 10),
+      release_url: r.html_url, sums_url: sums && sums.browser_download_url,
+      source: 'github',
+      assets: files.map(a => ({
+        format: formatOf(a.name || ''), name: a.name, size: a.size,
+        sha256: /^sha256:([0-9a-f]{64})$/.exec(a.digest || '')?.[1], url: a.browser_download_url
+      })).filter(a => a.format && a.sha256)
+    };
+  }
+
+  // Manifest entries win: they carry the checked signature. A GitHub-only
+  // version is added as it is. Where both list a file, the hashes must agree.
+  function mergeReleases(signed, github) {
+    const byVersion = new Map();
+    github.forEach(r => byVersion.set(r.version, r));
+    signed.forEach(r => {
+      const gh = byVersion.get(r.version);
+      const mismatch = !!gh && (r.assets || []).some(a => {
+        const other = gh.assets.find(b => b.name === a.name);
+        return other && other.sha256 !== a.sha256;
+      });
+      byVersion.set(r.version, { ...r, release_url: r.release_url || gh?.release_url, mismatch });
+    });
+    const key = v => v.split('.').map(Number);
+    return [...byVersion.values()].sort((a, b) => {
+      const pa = key(a.version), pb = key(b.version);
+      for (let i = 0; i < 3; i++) if (pa[i] !== pb[i]) return pb[i] - pa[i];
+      return 0;
+    });
+  }
+
+  function renderDesktopBody(rel) {
+    const assets = (rel.assets || []).filter(a => isRepoUrl(a.url) && isSha256(a.sha256));
+    const body = el('div', { class: 'desktop-release-body' });
+
+    if (rel.mismatch) {
+      body.append(el('p', { class: 'desktop-warn', role: 'alert' },
+        'Do not install this version: a file on GitHub does not match the signed checksum list. Please report it to ',
+        el('a', { href: 'mailto:briskwire@gmail.com?subject=Security%3A%20checksum%20mismatch' }, 'briskwire@gmail.com'), '.'));
+      return body;
+    }
+
+    body.append(el('div', { class: 'desktop-dl-buttons' },
+      assets.filter(a => DESKTOP_FORMATS[a.format]).map(a =>
+        el('a', { class: 'desktop-dl-btn', href: a.url, rel: 'noopener' },
+          el('span', { class: 'desktop-dl-label' }, DESKTOP_FORMATS[a.format].label),
+          el('span', { class: 'desktop-dl-hint' }, [DESKTOP_FORMATS[a.format].hint, formatSize(a.size)].filter(Boolean).join(' · '))))));
+
+    body.append(el('ul', { class: 'desktop-sums', 'aria-label': `SHA-256 checksums, version ${rel.version}` },
+      assets.map(a => el('li', null,
+        el('span', { class: 'desktop-sum-name' }, a.name),
+        el('code', { class: 'desktop-sum-hash' }, a.sha256),
+        copyButton(a.sha256, `SHA-256 of ${a.name}`)))));
+
+    const sig = rel.signature || {};
+    if (rel.source === 'github') {
+      body.append(el('p', { class: 'desktop-links' },
+        'Checksums from GitHub. This release is not yet in the signed list; verify it with the steps below.'));
+    } else if (sig.verified === true && isKeyId(sig.key_id) && isRepoUrl(sig.commit_url)) {
+      body.append(el('p', { class: 'desktop-sig' },
+        el('span', { class: 'desktop-sig-mark', 'aria-hidden': 'true' }, '\u2713'),
+        el('span', null,
+          'Verified: the checksum list is in a ',
+          el('a', { href: sig.commit_url, rel: 'noopener' }, 'commit signed by GitHub'),
+          ', GPG key ID ', el('code', null, sig.key_id), '.')));
+    }
+
+    const links = [];
+    if (isRepoUrl(rel.sums_url)) links.push(el('a', { href: rel.sums_url, rel: 'noopener' }, 'SHA256SUMS-desktop.txt'));
+    const sbom = assets.find(a => a.format === 'sbom');
+    if (sbom) links.push(el('a', { href: sbom.url, rel: 'noopener' }, 'SBOM (CycloneDX)'));
+    if (isRepoUrl(rel.release_url)) links.push(el('a', { href: rel.release_url, rel: 'noopener' }, 'This release on GitHub'));
+    if (links.length) {
+      body.append(el('p', { class: 'desktop-links' }, links.flatMap((l, i) => i ? [' · ', l] : [l])));
+    }
+    return body;
+  }
+
+  function renderVerifyHelp(tag) {
+    const cmds = [
+      'sha256sum -c SHA256SUMS-desktop.txt --ignore-missing',
+      `git clone ${DESKTOP_REPO}.git && cd briskwire-releases`,
+      'curl -s https://github.com/web-flow.gpg | gpg --import',
+      `git verify-commit ${tag}`
+    ].join('\n');
+    return el('details', { class: 'desktop-verify' },
+      el('summary', null, 'How to verify a download'),
+      el('pre', null, el('code', null, cmds)),
+      el('p', null,
+        'The first line checks your files against the list. The rest checks that GitHub signed the commit holding that list, with its ',
+        el('a', { href: 'https://github.com/web-flow.gpg', rel: 'noopener' }, 'web-flow key'),
+        '. Together they show the files are the ones the Briskwire™ release bot published, unchanged since. They do not show which build produced them.'));
+  }
+
+  async function loadDesktopReleases() {
+    const container = document.getElementById('desktop-releases-container');
+    if (!container || container.dataset.loaded === 'true') return;
+    const fallback = () => {
+      container.replaceChildren(el('div', { class: 'release-notes-loading' },
+        'Desktop downloads: ', el('a', { href: `${DESKTOP_REPO}/releases`, rel: 'noopener' }, 'github.com/briskwire/briskwire-releases')));
+    };
+    try {
+      const getJson = async (url, opts) => { const r = await fetch(url, opts); if (!r.ok) throw new Error(url); return r.json(); };
+      const [signedRes, githubRes] = await Promise.allSettled([
+        getJson('downloads/desktop-releases.json', { cache: 'no-cache' }),
+        getJson(DESKTOP_API, { headers: { Accept: 'application/vnd.github+json' } })
+      ]);
+      const valid = r => r && /^\d+\.\d+\.\d+$/.test(r.version || '');
+      const signed = signedRes.status === 'fulfilled' ? (signedRes.value.releases || []).filter(valid) : [];
+      const github = githubRes.status === 'fulfilled' && Array.isArray(githubRes.value)
+        ? githubRes.value.map(fromGitHub).filter(valid) : [];
+      const releases = mergeReleases(signed, github).filter(r => (r.assets || []).length);
+      if (!releases.length) { fallback(); return; }
+
+      const [latest, ...older] = releases;
+      const card = el('div', { class: 'desktop-release latest' },
+        el('div', { class: 'desktop-release-head' },
+          el('span', { class: 'release-note-version' }, `Version ${latest.version}`),
+          el('span', { class: 'desktop-release-date' }, formatDate(latest.date))),
+        renderDesktopBody(latest),
+        latest.mismatch ? null : renderVerifyHelp(latest.tag || `v${latest.version}`));
+      const nodes = [card];
+
+      if (older.length) {
+        nodes.push(el('h4', { class: 'desktop-older-title' }, 'Earlier versions'));
+        older.forEach(rel => {
+          const header = el('div', { class: 'release-note-header', role: 'button', tabindex: '0', 'aria-expanded': 'false' },
+            el('div', { class: 'release-note-version' }, `Version ${rel.version}`),
+            el('span', { class: 'desktop-release-date' }, formatDate(rel.date)));
+          const item = el('div', { class: 'release-note-item' }, header,
+            el('div', { class: 'release-note-content' }, renderDesktopBody(rel)));
+          const toggle = () => header.setAttribute('aria-expanded', String(item.classList.toggle('open')));
+          header.addEventListener('click', toggle);
+          header.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); } });
+          nodes.push(item);
+        });
+      }
+      container.replaceChildren(...nodes);
+      container.dataset.loaded = 'true';
+    } catch {
+      fallback();
+    }
+  }
+
+  const dlSection = document.getElementById('download');
+  if (dlSection) {
+    const dlObserver = new IntersectionObserver(entries => {
+      if (entries[0].isIntersecting) {
+        loadDesktopReleases();
+        dlObserver.unobserve(dlSection);
+      }
+    }, { rootMargin: '200px' });
+    dlObserver.observe(dlSection);
+  }
+
+  // ============================================================
   // 7. INIT
   // ============================================================
   document.addEventListener('DOMContentLoaded', async () => {

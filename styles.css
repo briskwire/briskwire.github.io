@@ -1034,6 +1034,223 @@ body.menu-open { overflow: hidden; }
 .download-info img { width: 18px; height: 18px; flex-shrink: 0; }
 
 /* ============================================================
+   DESKTOP RELEASES (inside #download, from downloads/desktop-releases.json)
+   ============================================================ */
+.desktop-releases {
+  max-width: 720px;
+  margin: var(--space-12) auto 0;
+  padding-top: var(--space-10);
+  border-top: 1px solid var(--md-sys-color-outline-variant);
+}
+.desktop-releases h3 {
+  font-size: 1.375rem;
+  font-weight: 700;
+  margin-bottom: var(--space-2);
+}
+.desktop-releases-sub {
+  color: var(--md-sys-color-on-surface-variant);
+  font-size: 0.9375rem;
+  margin-bottom: var(--space-6);
+}
+.desktop-releases-container { text-align: left; }
+
+.desktop-free-badge {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: var(--space-2);
+  padding: 2px var(--space-3);
+  border-radius: var(--md-sys-shape-full);
+  background: var(--md-sys-color-secondary-container);
+  color: var(--md-sys-color-on-secondary-container);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.desktop-repo-actions {
+  display: flex;
+  gap: var(--space-4);
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: var(--space-6);
+}
+.desktop-repo-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-2) var(--space-5);
+  border-radius: var(--md-sys-shape-full);
+  border: 1px solid var(--md-sys-color-outline);
+  color: var(--md-sys-color-primary);
+  font-weight: 600;
+  font-size: 0.9375rem;
+}
+.desktop-repo-btn:hover { text-decoration: none; background: var(--md-sys-color-surface-container-high); }
+.desktop-repo-btn:focus-visible { outline: 2px solid var(--md-sys-color-primary); outline-offset: 2px; }
+.desktop-repo-link { font-size: 0.9375rem; }
+
+/* Its own container, not .donation-links: the mobile rule hides those (the
+   nav's copy), and this one must stay visible at every width. */
+.desktop-support {
+  margin-bottom: var(--space-6);
+  color: var(--md-sys-color-on-surface-variant);
+  font-size: 0.9375rem;
+}
+.desktop-support p { margin-bottom: var(--space-3); }
+.desktop-support-links {
+  display: flex;
+  gap: var(--space-3);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.desktop-warn {
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--md-sys-shape-md);
+  background: var(--md-sys-color-error-container);
+  color: var(--md-sys-color-on-error-container);
+  font-size: 0.9375rem;
+}
+.desktop-warn a { color: inherit; text-decoration: underline; }
+
+.desktop-release.latest {
+  background: var(--md-sys-color-surface-container);
+  border: 1px solid var(--md-sys-color-outline-variant);
+  border-radius: var(--md-sys-shape-lg);
+  padding: var(--space-6);
+  margin-bottom: var(--space-6);
+}
+.desktop-release-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-4);
+  margin-bottom: var(--space-4);
+}
+.desktop-release-date {
+  color: var(--md-sys-color-on-surface-variant);
+  font-size: 0.875rem;
+  white-space: nowrap;
+}
+
+.desktop-dl-buttons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: var(--space-3);
+  margin-bottom: var(--space-5);
+}
+.desktop-dl-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--md-sys-shape-md);
+  background: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-primary-container);
+  transition: background var(--md-sys-motion-short) var(--md-sys-motion-standard);
+}
+.desktop-dl-btn:hover { text-decoration: none; background: var(--md-sys-color-inverse-primary); }
+.desktop-dl-btn:focus-visible { outline: 2px solid var(--md-sys-color-primary); outline-offset: 2px; }
+.desktop-dl-label { font-weight: 700; font-size: 1.0625rem; }
+.desktop-dl-hint { font-size: 0.8125rem; opacity: 0.85; }
+
+.desktop-sums {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--space-4);
+}
+.desktop-sums li {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 2px var(--space-3);
+  align-items: center;
+  padding: var(--space-2) 0;
+  border-bottom: 1px solid var(--md-sys-color-outline-variant);
+}
+.desktop-sum-name {
+  grid-column: 1 / -1;
+  font-size: 0.875rem;
+  color: var(--md-sys-color-on-surface);
+  overflow-wrap: anywhere;
+}
+.desktop-sum-hash {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 0.78rem;
+  color: var(--md-sys-color-on-surface-variant);
+  word-break: break-all;
+}
+.desktop-copy {
+  font: inherit;
+  font-size: 0.8125rem;
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--md-sys-shape-full);
+  border: 1px solid var(--md-sys-color-outline);
+  background: transparent;
+  color: var(--md-sys-color-primary);
+  cursor: pointer;
+}
+.desktop-copy:hover { background: var(--md-sys-color-surface-container-highest); }
+
+.desktop-sig {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--md-sys-shape-md);
+  background: var(--md-sys-color-secondary-container);
+  color: var(--md-sys-color-on-secondary-container);
+  font-size: 0.9375rem;
+  margin-bottom: var(--space-3);
+}
+.desktop-sig-mark { font-weight: 700; flex-shrink: 0; }
+.desktop-sig a { color: inherit; text-decoration: underline; }
+.desktop-sig code, .desktop-verify code {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 0.85em;
+}
+.desktop-links {
+  font-size: 0.875rem;
+  color: var(--md-sys-color-on-surface-variant);
+  margin-bottom: var(--space-3);
+}
+
+.desktop-verify summary {
+  cursor: pointer;
+  color: var(--md-sys-color-primary);
+  font-size: 0.9375rem;
+}
+.desktop-verify pre {
+  margin: var(--space-3) 0;
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--md-sys-shape-sm);
+  background: var(--md-sys-color-surface-container-lowest);
+  overflow-x: auto;
+  font-size: 0.8125rem;
+  line-height: 1.6;
+}
+.desktop-verify p {
+  font-size: 0.875rem;
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+.desktop-older-title {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--md-sys-color-on-surface-variant);
+  margin-bottom: var(--space-3);
+}
+.desktop-releases .release-note-content { padding-top: var(--space-4); }
+.desktop-releases .release-note-header .desktop-release-date { margin-left: auto; }
+
+@media (max-width: 480px) {
+  .desktop-release.latest { padding: var(--space-4); }
+  .desktop-release-head { flex-direction: column; gap: 0; }
+}
+
+/* ============================================================
    RELEASE NOTES
    ============================================================ */
 .release-notes {
