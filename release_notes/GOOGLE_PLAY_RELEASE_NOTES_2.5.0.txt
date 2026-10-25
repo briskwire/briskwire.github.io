@@ -1,7 +1,2 @@
-New Features:
-• Briskwire™ RGB (single) — a new colored QR that packs about 3× a standard QR's data and decodes in one shot.
-• Generate Briskwire™ RGB from any payload type the same way as a standard QR.
-• Re-open a scanned RGB code in the generator with its format preserved.
-
 Bug Fixes:
 • "Beep on detect" works again on Android 13+.

@@ -1,0 +1,12 @@
+New Features:
+• Two new ways to send: Briskwire™ Frame Mono and the fast animated Briskwire™ Glyph.
+• Glyph now sends megabytes, not kilobytes — a photo goes in one transfer.
+• A 5 fps speed for older cameras.
+• Generate shows a live capacity counter; Licences listed in About.
+
+Improvements:
+• Receiving moves the whole way instead of jumping to 100%.
+• The how-to is rewritten for the codecs and encryption the app now has.
+
+Bug Fixes:
+• Accented and non-Latin text no longer scans back as “?”.

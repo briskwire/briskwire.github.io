@@ -1,6 +1,4 @@
 New Features:
 • First release — offline file transfer between two Android phones.
 • Animated QR codes — send any file as a QR sequence the other device scans with its camera.
-• NFC tap — hold two devices back-to-back to stream the file over short-range radio.
-• Protocol picker — choose QR or NFC on every send.
 • Received files — re-share, export, open in other apps, or delete.

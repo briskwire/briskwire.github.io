@@ -1067,6 +1067,19 @@ body.menu-open { overflow: hidden; }
   letter-spacing: 0.04em;
   text-transform: uppercase;
 }
+.desktop-coming-badge {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: var(--space-2);
+  padding: 2px var(--space-3);
+  border-radius: var(--md-sys-shape-full);
+  background: var(--md-sys-color-tertiary-container);
+  color: var(--md-sys-color-on-tertiary-container);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
 .desktop-repo-actions {
   display: flex;
   gap: var(--space-4);
@@ -1703,6 +1716,14 @@ body.menu-open { overflow: hidden; }
   max-height: calc(100vh - 100px);
   object-fit: contain;
   border-radius: var(--md-sys-shape-sm);
+}
+.screenshot-modal-content--pixel {
+  image-rendering: pixelated;
+  width: min(90vw, calc(100vh - 120px));
+  height: min(90vw, calc(100vh - 120px));
+  background: #fff;
+  padding: 12px;
+  box-sizing: border-box;
 }
 
 .screenshot-modal-nav {

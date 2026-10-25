@@ -216,8 +216,11 @@
   function closeLightbox() {
     modal.classList.remove('show');
     document.body.style.overflow = '';
-    const section = document.getElementById('screenshots');
-    if (section) section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    modalImg.classList.remove('screenshot-modal-content--pixel');
+    if (currentIdx >= 0) {
+      const section = document.getElementById('screenshots');
+      if (section) section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   }
 
   function initLightbox() {
@@ -242,6 +245,33 @@
     if (e.key === 'Escape') closeLightbox();
     else if (e.key === 'ArrowLeft' && currentIdx > 0) openLightbox(currentIdx - 1);
     else if (e.key === 'ArrowRight' && currentIdx < screenshotItems.length - 1) openLightbox(currentIdx + 1);
+  });
+
+  // Standalone image zoom — for codec tiles and other comparison images
+  // outside the screenshots section (no prev/next, no scroll-back)
+  function openImageZoom(src, alt, pixelPerfect) {
+    if (!modal || !modalImg) return;
+    currentIdx = -1;
+    modalImg.src = src;
+    modalImg.alt = alt || '';
+    if (modalDesc) modalDesc.textContent = alt || '';
+    if (prevBtn) prevBtn.style.display = 'none';
+    if (nextBtn) nextBtn.style.display = 'none';
+    if (pixelPerfect) modalImg.classList.add('screenshot-modal-content--pixel');
+    document.body.style.overflow = 'hidden';
+    modal.classList.add('show');
+    if (closeBtn) closeBtn.focus();
+  }
+
+  document.querySelectorAll('.rgb-compare-img').forEach(img => {
+    img.style.cursor = 'zoom-in';
+    img.addEventListener('click', () => {
+      const zoomSrc = img.dataset.zoomSrc || img.src;
+      // Use pixelated only when the zoom source itself is a small code tile
+      // (naturalWidth comes from the thumbnail; data-zoom-src images are large).
+      const pixelPerfect = !img.dataset.zoomSrc && img.naturalWidth <= 400;
+      openImageZoom(zoomSrc, img.alt, pixelPerfect);
+    });
   });
 
   // ============================================================

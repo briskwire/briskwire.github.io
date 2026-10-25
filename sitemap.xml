@@ -3,7 +3,7 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://briskwire.app/</loc>
-    <lastmod>2026-09-20</lastmod>
+    <lastmod>2026-10-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -17,6 +17,12 @@
     </image:image>
     <image:image>
       <image:loc>https://briskwire.app/screenshots/tablet-sender-broadcasting-animated-qr-protocol-v3.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://briskwire.app/screenshots/tablet-sender-broadcasting-glyph-codec.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://briskwire.app/screenshots/tablet-sender-broadcasting-frame-mono-codec.png</image:loc>
     </image:image>
     <image:image>
       <image:loc>https://briskwire.app/screenshots/phone-sender-encrypt-choice-plain-or-encrypted.png</image:loc>
@@ -147,7 +153,7 @@
   </url>
   <url>
     <loc>https://briskwire.app/image-license.html</loc>
-    <lastmod>2026-09-20</lastmod>
+    <lastmod>2026-10-25</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
