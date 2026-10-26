@@ -63,7 +63,7 @@
             "@id": "https://briskwire.app/#organization"
           },
           "datePublished": "2026-05-17T12:25:56+02:00",
-          "dateModified": "2026-08-19T17:28:18+02:00"
+          "dateModified": "2026-09-21T00:00:00+02:00"
         },
         {
           "@type": "BreadcrumbList",
@@ -278,10 +278,11 @@
 
     <div class="container">
 
+
         <h1>Privacy Policy</h1>
 
         <div class="meta-info">
-            <p><strong>Effective Date:</strong> 2026-08-19</p>
+            <p><strong>Effective Date:</strong> 2026-09-21</p>
             <p><strong>Policy Version:</strong> <code>2026-08-19</code></p>
             <p><strong>Application:</strong> Briskwire™</p>
             <p><strong>Developer:</strong> Rafał Stańczuk</p>
@@ -291,14 +292,13 @@
 
         <div class="summary-box">
             <h3>One-sentence summary</h3>
-            <p style="margin-bottom: 0;">Briskwire™ has no <code>INTERNET</code> permission and transmits nothing off your device. It moves files between two devices using the screen and camera or a short-range NFC tap, and it can scan general barcodes on demand — everything it remembers is kept locally in the app's private storage.</p>
+            <p style="margin-bottom: 0;">Briskwire™ has no <code>INTERNET</code> permission and transmits nothing off your device. It moves files between two devices using the screen and camera, and it can scan general barcodes on demand — everything it remembers is kept locally in the app's private storage.</p>
         </div>
 
         <h2>Introduction</h2>
-        <p>Briskwire™ ("the App") is an offline tool with four user-visible capabilities:</p>
+        <p>Briskwire™ ("the App") is an offline tool with three user-visible capabilities:</p>
         <ul>
             <li><strong>Animated-QR file transfer</strong> — one device displays a sequence of QR codes on its screen; the other device scans them with its camera and reassembles the original file. You can optionally protect the transfer with end-to-end encryption (see "Encrypted transfers" below).</li>
-            <li><strong>NFC-tap file transfer</strong> — the two devices are held back-to-back and the file is streamed over the short-range NFC radio using Android's built-in Host Card Emulation (HCE) and Reader Mode APIs. Range is a few centimetres; no pairing, no discovery broadcasts.</li>
             <li><strong>Detect</strong> — a general-purpose barcode scanner that decodes any QR, EAN, UPC, Code-128, Code-39, Code-93, Codabar, ITF, Aztec, Data Matrix, or PDF417 code your camera sees. Decoded content is kept in a local on-device session list until you delete it.</li>
             <li><strong>Code generation ("Generate")</strong> — build a QR or barcode from a typed payload (URL, Wi-Fi credentials, contact card, SMS, email, phone, geographic location, calendar event, product code, or plain text). The preview bitmap re-renders on-device as you type; nothing is persisted to disk and nothing is transmitted off the device.</li>
         </ul>
@@ -330,7 +330,7 @@
 
         <p>The App does not declare the <code>android.permission.INTERNET</code> permission in its manifest. Android therefore cannot let the App open a network socket or make an HTTP request, period. No library bundled in the App — first- or third-party — can reach a remote server. This is enforced by the operating system, not by the App's own code.</p>
 
-        <p>All file transfer between two devices happens entirely through local, short-range channels: either the optical channel (one screen, one camera) or the NFC radio (Host Card Emulation on the sender, Reader Mode on the receiver). No Bluetooth, no Wi-Fi, no Wi-Fi Direct, no cellular data. The NFC channel carries framed APDU chunks directly between the two devices' NFC controllers; the bytes never touch the internet or any backend service.</p>
+        <p>All file transfer between two devices happens entirely through one local, short-range channel: the optical one — one device's screen showing the frames, the other device's camera reading them. No Bluetooth, no Wi-Fi, no Wi-Fi Direct, no cellular data, no NFC radio. The bytes travel as light between two devices you are holding, and never touch the internet or any backend service.</p>
 
         <h2>Encrypted transfers (optional)</h2>
         <p>When you send a file over the QR (screen-and-camera) channel, the App asks whether to send it <strong>plain</strong> or <strong>end-to-end encrypted</strong>. If you choose encrypted, the file's bytes are protected so that only the receiving device you paired with can read them — even though the transfer still happens entirely offline, with no server involved.</p>
@@ -351,18 +351,17 @@
             <li><strong>Your choice per transfer.</strong> Encryption is offered, not forced: you pick plain or encrypted for each send. Plain transfers behave exactly as described elsewhere in this policy.</li>
         </ul>
 
-        <p><strong>NFC transfers are not end-to-end encrypted</strong> in this version of the App. The NFC channel instead relies on its physical properties — it works only across a few centimetres, with the devices effectively touching. If you want cryptographic protection for a transfer, use the QR channel's encrypted mode.</p>
-
         <h2>Permissions requested</h2>
-        <p>Briskwire™ declares exactly <strong>three</strong> permissions, each tied to a single user-visible feature:</p>
+        <p>Briskwire™ declares exactly <strong>two</strong> permissions, each tied to a single user-visible feature:</p>
         <ul>
             <li><strong><code>android.permission.CAMERA</code></strong> (runtime) — used only to read codes shown by another device's screen or printed on a physical surface. The camera feed is processed in-memory frame-by-frame by the on-device barcode decoder; no frames are photographed, stored, or shared. Small thumbnails of barcodes you save in Detect are an exception and are described below.</li>
-            <li><strong><code>android.permission.NFC</code></strong> (install-time) — used only when you choose the NFC transfer mode. It lets the App act as an HCE service (sender) or put the NFC reader into reader mode (receiver) so the two devices can exchange file chunks while held together. No NFC data is logged, cached beyond the active transfer, or forwarded anywhere.</li>
             <li><strong><code>android.permission.CHANGE_WIFI_STATE</code></strong> (install-time) — used only when you scan a Wi-Fi QR code in Detect and tap the on-screen "Connect" action. The App then calls Android's <code>WifiManager.addNetworkSuggestions()</code> API to hand the SSID and password to the system Wi-Fi panel, so you can tap the network and connect without typing the password manually. Briskwire™ never sends Wi-Fi credentials anywhere and never connects to the network itself; the actual association is handled by the Android OS and is governed by your phone's normal Wi-Fi behaviour.</li>
         </ul>
-        <p>If you deny camera permission, the App still works for <em>sending</em> files (displaying animated QR codes on your screen does not need the camera); only the QR-receive flow and Detect become unavailable until you grant it in Android Settings.</p>
+        <p>That is the entire list. The App does <em>not</em> declare <code>android.permission.INTERNET</code>, and it does <em>not</em> declare <code>android.permission.NFC</code> — there is no NFC transfer mode in this version of the App. (An APK analyser will still show two optional NFC hardware entries of the form <code>&lt;uses-feature android:required="false"&gt;</code>, left behind by that work. A feature declaration is not a permission: it grants no access to anything and does not restrict which devices can install the App.)</p>
 
-        <p>If your device has no NFC hardware, doesn't support Host Card Emulation, or has NFC switched off in system settings, the NFC transfer option in the App stays <em>visible but disabled</em> — greyed out and non-tappable — rather than hidden. This way both transfer methods remain discoverable regardless of hardware; the QR mode stays fully available in every case.</p>
+        <p>Several of the libraries bundled in the App would ordinarily contribute permissions of their own when the build is assembled — ML Kit's telemetry component adds <code>INTERNET</code>, and WorkManager adds <code>ACCESS_NETWORK_STATE</code>, <code>WAKE_LOCK</code>, <code>RECEIVE_BOOT_COMPLETED</code>, and <code>FOREGROUND_SERVICE</code>. Every one of them is explicitly removed from the shipped manifest, and a build-time check fails the release if a future dependency ever adds one back. The two permissions above are what the finished App actually asks your device for, and you can confirm that yourself in Android Settings or with any APK analyser.</p>
+
+        <p>If you deny camera permission, the App still works for <em>sending</em> files (displaying animated QR codes on your screen does not need the camera); only the QR-receive flow and Detect become unavailable until you grant it in Android Settings.</p>
 
         <h2>Wi-Fi credential QR codes</h2>
         <p>Detect recognises Wi-Fi configuration QR codes (the <code>WIFI:T:…;S:…;P:…;;</code> format printed on many home routers and event posters). When you tap one of these in the scan history, the App parses the SSID, password, and encryption mode and offers a "Connect" button.</p>
@@ -394,7 +393,7 @@
 
         <p>Everything the form collects — including Wi-Fi passwords, phone numbers, email addresses, names, contact details, and calendar-event details — lives in the App's memory only, for as long as the Generate screen is open. None of it is persisted to disk, written to a database, or transmitted anywhere. Dismissing the screen, rotating away and not retyping, or closing the App drops the form contents. The preview bitmap is held in memory until you explicitly tap Save (writes the bitmap to a location you pick via the system file picker), Share (hands the bitmap to another app via the system share sheet), or Print (hands the bitmap to <code>androidx.print.PrintHelper</code> and the system print spool — see the "Printing" section below).</p>
 
-        <p>The Generate screen does not require any additional permissions: it never needs camera, NFC, or Wi-Fi access. Detect's <code>CHANGE_WIFI_STATE</code> permission is only used when you tap "Connect" on a <em>scanned</em> Wi-Fi QR — generating a Wi-Fi QR is a pure local encode and does not call the Wi-Fi subsystem.</p>
+        <p>The Generate screen does not require any additional permissions: it never needs camera or Wi-Fi access. Detect's <code>CHANGE_WIFI_STATE</code> permission is only used when you tap "Connect" on a <em>scanned</em> Wi-Fi QR — generating a Wi-Fi QR is a pure local encode and does not call the Wi-Fi subsystem.</p>
 
         <p>The Generate screen can also be opened pre-filled from a scanned code's "Regenerate" button in Detect's detail dialog. In that flow the App reconstructs a structured payload from the scanned bytes and seeds the matching form — again entirely on-device, with the same in-memory-only handling as a manually-typed entry.</p>
 
@@ -402,9 +401,9 @@
         <p>You can print a QR code you have generated in the App, or print a thumbnail of a barcode you have scanned. Tapping "Print" hands a bitmap to Android's standard <code>androidx.print.PrintHelper</code>, which opens the system print dialog where you choose a printer. Briskwire™ never communicates with a printer or a cloud-print service itself; once the bitmap is in the system print spool, the print service you select (and its own privacy policy) takes over.</p>
 
         <h2>"Share to Briskwire™" and "Open with Briskwire™"</h2>
-        <p>Briskwire™ registers itself as a target for Android's standard share sheet (<code>ACTION_SEND</code> and <code>ACTION_SEND_MULTIPLE</code>) and as a handler for opening files (<code>ACTION_VIEW</code> against <code>content://</code> and <code>file://</code> URIs). This means another app on your device — Files, Gallery, Drive, a chat app, etc. — can hand a file (or a piece of text) to Briskwire™ so you can send it on via QR or NFC without having to find it inside Briskwire™ first.</p>
+        <p>Briskwire™ registers itself as a target for Android's standard share sheet (<code>ACTION_SEND</code> and <code>ACTION_SEND_MULTIPLE</code>) and as a handler for opening files (<code>ACTION_VIEW</code> against <code>content://</code> and <code>file://</code> URIs). This means another app on your device — Files, Gallery, Drive, a chat app, etc. — can hand a file (or a piece of text) to Briskwire™ so you can send it on without having to find it inside Briskwire™ first.</p>
 
-        <p>When you do this, Briskwire™ reads the shared bytes into <em>process memory only</em> (a small in-memory holder, not a file on disk) and shows the protocol picker so you can choose QR or NFC. The bytes are released as soon as the transfer ends, fails, is cancelled, or the App's process is killed. Nothing about the inbound share is logged or transmitted off the device, and the inbound share is never written to the received-files list — that list is for files <em>received</em> from another device, not for files you handed to Briskwire™ from elsewhere on your own phone.</p>
+        <p>When you do this, Briskwire™ reads the shared bytes into <em>process memory only</em> (a small in-memory holder, not a file on disk) and opens the QR sender with it. The bytes are released as soon as the transfer ends, fails, is cancelled, or the App's process is killed. Nothing about the inbound share is logged or transmitted off the device, and the inbound share is never written to the received-files list — that list is for files <em>received</em> from another device, not for files you handed to Briskwire™ from elsewhere on your own phone.</p>
 
         <p>For oversized payloads, Briskwire™ refuses the share with an on-screen warning rather than buffering it; the data is never written to disk.</p>
 
@@ -413,18 +412,17 @@
         <ul>
             <li><strong>Operating-system permission model.</strong> Android itself prevents Briskwire™ from opening sockets or making HTTP requests: the <code>android.permission.INTERNET</code> permission is not declared in the manifest, so no library bundled in the App — first- or third-party — can reach a remote server.</li>
             <li><strong>App sandbox.</strong> Received files, the metadata database, and the scan-history database live in Briskwire™'s private internal storage (<code>context.filesDir</code>), which the Android runtime isolates from every other app on the device. No other app can read Briskwire™'s storage unless you explicitly export a file or a CSV via the system share sheet or file picker.</li>
-            <li><strong>Short-range local channels only.</strong> The optical (QR) channel requires direct line-of-sight between the two screens and a camera pointed at them. The NFC channel requires the devices to be within a few centimetres of each other, with the sender acting as an HCE service and the receiver in NFC reader mode; there is no pairing, no discovery broadcast, and no persistent association between devices after a transfer ends.</li>
+            <li><strong>A short-range local channel only.</strong> The optical (QR) channel requires direct line-of-sight: one device's screen displaying the frames, the other device's camera pointed at it. There is no radio of any kind, no pairing, no discovery broadcast, and no persistent association between the two devices after a transfer ends.</li>
             <li><strong>Optional end-to-end encryption.</strong> QR transfers can additionally be encrypted with AES-256-GCM under an ephemeral session key agreed via X25519, with a 6-digit security code for verifying the pairing — see the "Encrypted transfers" section above. Key material lives in memory only and is discarded when the session ends.</li>
             <li><strong>Hardened in-app WebView.</strong> The only WebView in the App is the one that renders this privacy policy. It loads the bundled HTML asset from the APK only (<code>file:///android_asset/privacy_policy.html</code>), and has JavaScript, file access, and content access explicitly disabled.</li>
         </ul>
-        <p>NFC-framed APDU chunks are held in memory only for the duration of the active transfer and discarded when the transfer finishes, fails, or the user cancels.</p>
 
         <h2>Data retention and deletion</h2>
-        <p><strong>Received files.</strong> Files you receive via the QR or NFC transfer flows are saved in the App's private internal storage at <code>context.filesDir/received/</code>. The App schedules a background <em>cleanup worker</em> via Android's <code>WorkManager</code> that runs roughly once every 24 hours and deletes any received file that is more than <strong>30 days</strong> old, along with its metadata row. Files you have exported are <em>not</em> affected — exports live wherever you saved them (Downloads, Drive, etc.) and are controlled by you. If you want to keep a received file long-term, export it or open it from the file list within 30 days of receiving it.</p>
+        <p><strong>Received files.</strong> Files you receive via the QR transfer flow are saved in the App's private internal storage at <code>context.filesDir/received/</code>. The App schedules a background <em>cleanup worker</em> via Android's <code>WorkManager</code> that runs roughly once every 24 hours and deletes any received file that is more than <strong>30 days</strong> old, along with its metadata row. Your <em>exported</em> copy is <em>not</em> affected — exports live wherever you saved them (Downloads, Drive, etc.) and are controlled by you; the copy inside the App is still removed on the same schedule. <strong>Opening a file does not extend this.</strong> "Open with" hands the bytes to another app rather than making a durable copy here, and nothing resets the clock — saving (exporting) the file is the only way to keep it. Deletion is permanent: this storage is private to the App and excluded from Android backup, so there is no copy to restore from. The App shows a one-time notice explaining this, and warns you about un-exported files in the last days before they are removed.</p>
 
         <p><strong>Saved barcode scans.</strong> Scans you save in Detect are kept indefinitely until you delete them or clear the App's data. There is no automatic expiry on scan history.</p>
 
-        <p><strong>In-memory transfer state.</strong> QR scan buffers and NFC-framed APDU chunks exist only for the duration of the active transfer and are released as soon as the transfer finishes, fails, or is cancelled.</p>
+        <p><strong>In-flight transfer state.</strong> QR scan buffers live in memory for the duration of the active transfer and are released as soon as it ends. One exception: if a receive is interrupted before the last frame arrives, the frames gathered so far are written to a small private resume cache (<code>partial_transfer.db</code>) so you can carry on instead of re-scanning from the beginning. Entries there expire after <strong>30 minutes</strong> and are pruned the next time you open the App. Like everything else the App stores, that cache stays in private internal storage and is never backed up or transmitted.</p>
 
         <p>You control everything on disk:</p>
         <ul>
@@ -453,7 +451,7 @@
         <p>For each barcode you save in Detect, the App records the fields listed in the "Detect" section above (decoded value, raw bytes, format, value type, timestamp, deduplication hash, thumbnail path, thumbnail dimensions), grouped into named sessions with a start and end timestamp.</p>
 
         <h3>Privacy-gate acceptance</h3>
-        <p>The version tag of the policy you most recently accepted (e.g. <code>2026-08-19</code>) is stored in a <code>SharedPreferences</code> entry so the App knows whether to re-prompt you when the policy changes.</p>
+        <p>The version tag of the policy you most recently accepted (e.g. <code>2026-08-19</code>) is stored in an <code>SharedPreferences</code> entry so the App knows whether to re-prompt you when the policy changes.</p>
 
         <p>None of this metadata ever leaves the device.</p>
 
@@ -472,13 +470,11 @@
             <li><strong>Lottie</strong> — renders the onboarding animations from bundled <code>.json</code> asset files only; never fetches animation data from a remote URL.</li>
             <li><strong>Google Play In-App Review</strong> — see the "Rating the app" section below.</li>
         </ul>
-        <p>The NFC transfer mode uses <strong>only</strong> the Android operating system's built-in NFC APIs (<code>android.nfc.cardemulation.HostApduService</code> and <code>android.nfc.NfcAdapter</code> reader mode). No third-party NFC library is bundled.</p>
-
         <h2>External links in the About screen</h2>
         <p>The About screen inside the App shows tappable rows for the developer's email address, the official project page, the developer's public GitHub profile, and a "Rate the App" shortcut. Tapping any of these hands off to another app on your device — your mail client for the email, your browser for the URLs, or the Play Store for the rating link — via standard Android <code>ACTION_SENDTO</code> and <code>ACTION_VIEW</code> intents. Briskwire™ itself never contacts those endpoints or transmits data to them. Once you tap a link, the resulting traffic is governed by the privacy policy of the receiving app (your mail client, browser, or Play Store), not by Briskwire™'s.</p>
 
         <h2>Rating the app</h2>
-        <p>After you have completed three successful file transfers (in either QR or NFC mode), the App invokes Google Play's <em>in-app review</em> API to show the standard Play Store rating dialog inside Briskwire™. The trigger condition is evaluated entirely on-device: the App keeps a small counter in <code>SharedPreferences</code> and asks the system for the dialog when the counter reaches three.</p>
+        <p>After you have completed three successful file transfers, the App invokes Google Play's <em>in-app review</em> API to show the standard Play Store rating dialog inside Briskwire™. The trigger condition is evaluated entirely on-device: the App keeps a small counter in <code>SharedPreferences</code> and asks the system for the dialog when the counter reaches three.</p>
 
         <p>The review dialog itself is rendered by the Google Play Store app running as a separate process on your phone. If you choose to rate or comment, that submission goes from the Play Store to Google's servers under Google's own privacy policy — Briskwire™ has no <code>INTERNET</code> permission and so cannot, and does not, transmit anything itself. If you dismiss the dialog, nothing is sent.</p>
 
@@ -489,9 +485,13 @@
         <p>Release builds of the App are post-processed by R8, which strips verbose, debug, and info log calls at build time; only warning- and error-level entries can reach Android's local system log on a shipping APK, and they go no further than the device.</p>
 
         <h2>Android cloud backup</h2>
-        <p>The App's manifest leaves Android's default Auto Backup behaviour enabled (<code>android:allowBackup="true"</code>). This means that <em>if you have enabled Backup by Google One (or any equivalent backup service) in your phone's System Settings</em>, Android may include Briskwire™'s private storage in your encrypted device backup — that includes received files, scan history, and the privacy-acceptance preference.</p>
+        <p>Briskwire™ switches Android's Auto Backup off completely. The App's manifest sets <code>android:allowBackup="false"</code>, so the operating system never includes anything the App stores in a cloud backup — not received files, not their metadata, not scan history or thumbnails, not the resume cache for an interrupted transfer, not the privacy-acceptance preference. Nothing of the App's is uploaded to Backup by Google One or to any equivalent service, whether or not you have that service switched on for the rest of your phone. You do not have to change any setting to get this; it is the App's own default and it cannot be switched on from inside the App.</p>
 
-        <p>This is the Android operating system's mechanism, not Briskwire™'s, and the backup contents are stored under your Google account, encrypted, and governed by Google's privacy policy. If you would prefer that Briskwire™'s data is not backed up, turn off App data backup for Briskwire™ in System Settings → Google → Backup, or disable cloud backup globally on your device.</p>
+        <p>It is deliberately fail-closed, and it matters more than it looks: Auto Backup runs in a system process with its own network access, so the missing <code>INTERNET</code> permission would <em>not</em> have stopped it. The alternative — keeping backup on and maintaining a list of folders to exclude — quietly fails open the moment a new store is added to the App, which is exactly the kind of accident this section exists to rule out.</p>
+
+        <div class="exclusion-box">
+            <p style="margin-bottom: 0;"><strong>The trade-off, so you know it in advance:</strong> because nothing is backed up, nothing can be restored. If you move to a new phone, factory-reset this one, or clear the App's data, your received files and your scan history are gone — there is no cloud copy to restore them from. Export anything you want to keep while you still have it: a received file with <strong>Save</strong>, a scan session with CSV export, to Downloads, Drive, an SD card, or wherever you like.</p>
+        </div>
 
         <h2>Children's privacy</h2>
         <p>The App does not knowingly collect or process data from anyone, including children under the age of 13. Because the App collects no data at all, there is no age-restricted processing.</p>
@@ -502,7 +502,9 @@
         <p>You retain full control over any files, scans, and metadata stored locally by the App. To remove all of it: use the per-item Delete action, Android's "Clear Data" feature, or uninstall the App. No separate data-subject request is needed.</p>
 
         <h2>Changes to this policy</h2>
-        <p>If this policy changes in any user-affecting way, a new <strong>Policy Version</strong> tag will be published (the "Effective Date" at the top of this page). The App ships with a matching version constant; when the hosted policy version differs from the constant the user previously accepted, the App will present the updated policy on next launch and require acceptance before proceeding.</p>
+        <p>If this policy changes in a way that affects how your data is handled, a new <strong>Policy Version</strong> tag will be published. The App ships with a matching version constant; when that constant differs from the version you previously accepted, the App presents the updated policy on next launch and requires acceptance before proceeding.</p>
+
+        <p>The <strong>Effective Date</strong> at the top of this page moves with every revision, including this one. The <strong>Policy Version</strong> tag is deliberately separate and moves only when re-acceptance is warranted. The 2026-09-21 revision corrected descriptions that no longer matched the App as shipped: it removed the NFC transfer mode, which is not part of this build; reduced the permissions list to the two the App actually requests; and replaced the Android backup section, which described cloud backup as enabled when the App in fact disables it outright. Each of those corrections narrows what the App does rather than widening it, so the Policy Version tag is unchanged and you are not asked to accept again.</p>
 
         <p>The current policy version is <strong><code>2026-08-19</code></strong>.</p>
 
@@ -510,9 +512,8 @@
         <p>Questions about this policy or about the App: <a href="mailto:briskwire@gmail.com">briskwire@gmail.com</a>.</p>
 
         <hr>
-        <p class="footer-note">Briskwire™ — offline peer-to-peer file transfer via animated QR codes or NFC tap, plus on-device barcode scanning.</p>
+        <p class="footer-note">Briskwire™ — offline peer-to-peer file transfer via animated QR codes, plus on-device barcode scanning.</p>
 
     </div>
-
 </body>
 </html>

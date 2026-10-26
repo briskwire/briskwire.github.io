@@ -1,0 +1,7 @@
+Improvements:
+• Generated Briskwire™ Glyph codes use bigger cells when they carry less data, so they scan more easily.
+
+Bug Fixes:
+• The scanner missed Briskwire™ Glyph and Frame Mono codes, and sometimes Frame RGB codes.
+• Turning on a Briskwire™ codec in scanner settings no longer also turns on QR RGB (single) detection.
+• The largest Briskwire™ QR RGB (single) codes failed to generate even though the size meter showed they fit.
