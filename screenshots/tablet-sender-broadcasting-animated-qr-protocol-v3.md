@@ -1,3 +1,3 @@
-# Sender broadcasting
+# Sending with QR
 
-The sender's screen displays the file as an animated QR sequence — the other phone's camera reads it back into the original bytes.
+The sender's screen shows the file as animated QR codes. The other phone's camera turns them back into the file.

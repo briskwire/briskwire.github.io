@@ -1,3 +1,3 @@
-# Sender broadcasting — Briskwire™ Glyph
+# Sending with Briskwire™ Glyph
 
-The Glyph codec fills the screen with dense, colourful symbol cells — red, green, blue, and magenta on white. A 4 MB photo transfers in a single cycle at higher speeds.
+Glyph fills the screen with dense colour symbols: red, green, blue and magenta on white. At higher speeds, a 4 MB photo goes in a single cycle.

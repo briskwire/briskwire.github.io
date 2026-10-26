@@ -1,3 +1,3 @@
 # Export to CSV
 
-Send a whole session to a CSV file — one row per code, ready to drop into a spreadsheet for inventory or audit work.
+Save a whole session as a CSV file, one row per code, ready for a spreadsheet.

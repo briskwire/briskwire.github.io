@@ -1,5 +1,5 @@
 New Features:
-• Tap the preview code in Generate — opens it full screen. Tap the image again to close.
+• Tap the preview code in Generate - opens it full screen. Tap the image again to close.
 
 Improvements:
 • Text fields in Generate now expand line-by-line as you type instead of showing a fixed scroll box.

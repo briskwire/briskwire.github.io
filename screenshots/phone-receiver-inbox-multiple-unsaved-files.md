@@ -1,3 +1,3 @@
 # Your inbox
 
-Received files live in Briskwire's private storage. An "Unsaved" chip flags anything you haven't exported yet.
+Received files stay in Briskwire's private storage. An "Unsaved" chip marks files you haven't exported yet.

@@ -1,3 +1,3 @@
-# Generate — SMS shortcut
+# Generate: SMS shortcut
 
-Encode a phone number and message body into a QR — scanned, it opens the messaging app pre-filled. Handy for shop counters and event signage.
+Put a phone number and message into a QR. When scanned, it opens the messaging app with both filled in. Useful at shop counters and events.

@@ -1,3 +1,3 @@
-# Generate — plain QR live preview
+# Generate: plain QR live preview
 
-Generate screen showing a live preview of a plain black-and-white QR for a long-text payload. The preview tile updates as you type.
+A live preview of a plain QR for a long text. The preview updates as you type.

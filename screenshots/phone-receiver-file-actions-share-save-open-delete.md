@@ -1,3 +1,3 @@
-# Per-file actions
+# File actions
 
-Tap any received file to share onward via QR, save to Downloads, open in another app, or delete.
+Tap a received file to share it by QR, save it to Downloads, open it in another app, or delete it.

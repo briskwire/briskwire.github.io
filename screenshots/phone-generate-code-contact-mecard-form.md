@@ -1,3 +1,3 @@
-# Generate — typed contact
+# Generate: contact
 
-Pick the Contact type, fill in name, phones, email, organisation — Briskwire builds a valid vCard or MeCard QR ready to save, share, or print.
+Choose Contact and fill in name, phones, email and organisation. Briskwire builds a vCard or MeCard QR to save, share or print.

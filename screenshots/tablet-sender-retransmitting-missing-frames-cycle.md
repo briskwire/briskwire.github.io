@@ -1,3 +1,3 @@
-# Sender resending just the gaps
+# Sender resending the gaps
 
-After reading the receiver's retry code, the sender enters a recovery cycle and re-broadcasts only the missing frames — not the whole file again.
+After reading the retry code, the sender resends only the missing frames, not the whole file.

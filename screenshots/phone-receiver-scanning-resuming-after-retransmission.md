@@ -1,3 +1,3 @@
 # Resuming after recovery
 
-Frames you already collected are kept — the receiver picks up where it left off and absorbs the freshly resent ones until the file is whole.
+Frames already received are kept. The receiver continues where it stopped and adds the resent frames until the file is complete.

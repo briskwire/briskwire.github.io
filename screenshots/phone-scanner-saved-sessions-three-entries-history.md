@@ -1,3 +1,3 @@
 # Scan sessions
 
-Detected codes are grouped into named sessions you can rename, delete, or export to CSV — your scan history, on your phone.
+Scanned codes are grouped into named sessions. Rename, delete or export them to CSV. Your scan history stays on your phone.

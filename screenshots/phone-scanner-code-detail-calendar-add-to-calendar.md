@@ -1,3 +1,3 @@
-# Detail — calendar event, ready to add
+# Detail: calendar event, ready to add
 
-VCALENDAR data is parsed into Title, Location, and Notes — one tap drops the event straight into your phone's calendar.
+VCALENDAR data is split into Title, Location and Notes. One tap adds the event to your calendar.

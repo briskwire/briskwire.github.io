@@ -1,3 +1,3 @@
-# Four speed presets
+# Speed presets
 
-Long Range, Default, Fast, or Fastest — pick the trade-off that fits your camera and lighting. Advanced settings let you tune QR version, error correction, and compression by hand.
+Pick the speed preset that suits your camera and light, from Long Range to Ultra. Advanced settings let you set QR version, error correction and compression by hand.

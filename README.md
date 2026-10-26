@@ -1,12 +1,12 @@
-# Briskwire™ — Landing Page
+# Briskwire™ - Landing Page
 
-Public landing page for **Briskwire™** — an offline Android app that moves files
+Public landing page for **Briskwire™** - an offline Android app that moves files
 between two phones via animated QR codes, scans any
 barcode, and generates codes from typed fields. Works in airplane mode.
 
 Live at <https://briskwire.app>. Hosted on GitHub Pages.
 
-## ⚠️ Proprietary — All Rights Reserved
+## ⚠️ Proprietary - All Rights Reserved
 
 © 2026 Rafał Stańczuk. This repository is proprietary and is published
 here solely so that GitHub Pages can serve the landing page at the canonical
@@ -34,7 +34,7 @@ internet, no account. Works in airplane mode.
 Beyond transfers, Briskwire™ ships a universal barcode scanner (QR, Aztec,
 EAN, UPC, PDF417, Data Matrix and more) with smart action handoffs, plus a
 typed-code generator for Wi-Fi, contact, SMS, email, calendar, geo, URL and
-text — all fully on-device.
+text - all fully on-device.
 
 See the [Privacy Policy](https://briskwire.app/privacy_policy.html) for
 the full data posture.

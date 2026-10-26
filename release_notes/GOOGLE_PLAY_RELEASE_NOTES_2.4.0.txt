@@ -1,9 +1,9 @@
 New Features:
-• Detect — universal barcode scanner with copy, share, print and save.
+• Detect - universal barcode scanner with copy, share, print and save.
 • Scan sessions group codes into named lists and export as CSV.
-• Generate typed codes — Wi-Fi, contact, SMS, email, calendar, geo, URL or text.
-• Resume an interrupted send in one tap — Briskwire™ saves your file automatically.
+• Generate typed codes - Wi-Fi, contact, SMS, email, calendar, geo, URL or text.
+• Resume an interrupted send in one tap - Briskwire™ saves your file automatically.
 • Scanner keeps frame progress across navigation and restarts.
 • Integrity failure shows a "Try Again" sheet.
 • Settings → Rate Briskwire™.
-• Privacy policy refreshed — re-accept on next launch.
+• Privacy policy refreshed - re-accept on next launch.

@@ -1,3 +1,3 @@
-# Generate — mailto QR
+# Generate: email QR
 
-Pre-fill an entire email — recipient, subject, body — into a single scannable QR. Save as image, share, or send to a printer.
+Put a whole email (recipient, subject and body) into one QR. Save it as an image, share it or print it.

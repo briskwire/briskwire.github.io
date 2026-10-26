@@ -1,3 +1,3 @@
-# Detail — MeCard contact
+# Detail: MeCard contact
 
-Briskwire recognises both vCard and the older, denser MeCard contact format. Same parsed view, same "Add to contacts" handoff.
+Briskwire also reads the older, more compact MeCard format. Same view, same "Add to contacts" button.

@@ -1,3 +1,3 @@
-# Sender broadcasting — Briskwire™ Frame Mono
+# Sending with Briskwire™ Frame Mono
 
-Frame Mono packs data into a dense black-and-white grid — denser than plain QR, readable by any camera. The bottom-right corner finder carries a hollow orientation ring to distinguish it from the other three.
+Frame Mono uses a dense black-and-white grid that holds more than a QR code. A hollow ring in the bottom-right corner marker shows which way the code faces.

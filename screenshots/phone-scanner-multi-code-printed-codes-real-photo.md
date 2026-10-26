@@ -1,3 +1,3 @@
-# Detecting printed codes in the wild
+# Reading printed codes
 
-Briskwire reads multiple codes off real-world print at once — labels, packaging, posters — and tracks each one independently.
+Briskwire reads several printed codes at once, on labels, packaging or posters, and tracks each one separately.

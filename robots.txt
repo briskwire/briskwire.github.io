@@ -1,4 +1,4 @@
-# robots.txt — Briskwire Landing Page
+# robots.txt - Briskwire Landing Page
 # © 2024-2026 Rafał Stańczuk. All Rights Reserved.
 # Search engines allowed. AI training and scraping prohibited.
 
@@ -50,7 +50,7 @@ Allow: /
 User-agent: Google-Site-Verification
 Allow: /
 
-# Link-preview fetchers — they obey robots.txt and need the page + og:image
+# Link-preview fetchers - they obey robots.txt and need the page + og:image
 # to render a card when the URL is shared. These are not training crawlers.
 User-agent: Twitterbot
 Allow: /

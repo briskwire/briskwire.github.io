@@ -1,3 +1,3 @@
-# Long text decoded — plain QR
+# Long text: plain QR
 
-281 bytes of plain text decoded from a standard QR. Captured as code 1 of a 2-code session paired with the colored experimental codec — same payload, two formats, both round-tripped cleanly.
+281 bytes of text read from a standard QR. It is code 1 of a two-code session with Briskwire™ QR RGB: same text, two formats, both read correctly.

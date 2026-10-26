@@ -1,5 +1,5 @@
 New Features:
-• App Settings: tap ⚙ on the files list to force dark mode and pick your language — English, Polski, Українська, Español or Deutsch.
+• App Settings: tap ⚙ on the files list to force dark mode and pick your language - English, Polski, Українська, Español or Deutsch.
 • Polish, Ukrainian, Spanish and German on every screen including About.
 
 Improvements:

@@ -1,3 +1,3 @@
-# Detail — Wi-Fi network
+# Detail: Wi-Fi network
 
-A scanned Wi-Fi QR shows the SSID and security mode immediately. Tap Connect and Briskwire pre-fills the network into Android settings — no manual typing.
+A scanned Wi-Fi code shows the network name and security type. Tap Connect and Briskwire fills in the network in Android settings.

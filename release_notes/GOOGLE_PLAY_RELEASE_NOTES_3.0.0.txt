@@ -1,6 +1,6 @@
 New Features:
 • Two new ways to send: Briskwire™ Frame Mono and the fast animated Briskwire™ Glyph.
-• Glyph now sends megabytes, not kilobytes — a photo goes in one transfer.
+• Glyph now sends megabytes, not kilobytes - a photo goes in one transfer.
 • A 5 fps speed for older cameras.
 • Generate shows a live capacity counter; Licences listed in About.
 

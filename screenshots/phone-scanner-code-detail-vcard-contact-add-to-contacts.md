@@ -1,3 +1,3 @@
-# Detail — vCard contact
+# Detail: vCard contact
 
-Scanned a vCard QR? Briskwire parses every field — name, multiple phones, email, organisation — and offers a one-tap "Add to contacts" handoff.
+Briskwire reads every field of a vCard QR, including name, several phone numbers, email and organisation. One tap adds the contact.

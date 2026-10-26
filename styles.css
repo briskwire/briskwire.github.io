@@ -1,5 +1,5 @@
 /* ============================================================
-   Briskwire — Material Design 3 Dark Theme (Cyan)
+   Briskwire - Material Design 3 Dark Theme (Cyan)
    ============================================================ */
 
 /* ---------- Reset ---------- */
@@ -7,7 +7,7 @@
 
 /* ---------- M3 Design Tokens ---------- */
 :root {
-  /* Color — dark scheme generated from source #00BCD4 (Briskwire Teal) */
+  /* Color - dark scheme generated from source #00BCD4 (Briskwire Teal) */
   --md-sys-color-primary: #4dd0e1;
   --md-sys-color-on-primary: #003640;
   --md-sys-color-primary-container: #004f58;
@@ -49,7 +49,7 @@
   --md-sys-color-inverse-on-surface: #2b3133;
   --md-sys-color-inverse-primary: #00687a;
 
-  /* Typography — Inter mapped to M3 scale */
+  /* Typography - Inter mapped to M3 scale */
   --md-ref-typeface-brand: 'Inter', system-ui, -apple-system, sans-serif;
   --md-ref-typeface-plain: 'Inter', system-ui, -apple-system, sans-serif;
 
@@ -156,7 +156,7 @@ section {
 }
 
 /* ============================================================
-   NAVIGATION — M3 Top App Bar
+   NAVIGATION - M3 Top App Bar
    ============================================================ */
 .navbar {
   position: sticky;
@@ -228,7 +228,7 @@ section {
   outline-offset: 2px;
 }
 
-/* Donation Links inside mobile dropdown — hidden on desktop */
+/* Donation Links inside mobile dropdown - hidden on desktop */
 .nav-donation-links {
   display: none;
 }
@@ -715,7 +715,7 @@ body.menu-open { overflow: hidden; }
   filter: brightness(0) saturate(100%) invert(78%) sepia(63%) saturate(325%) hue-rotate(141deg) brightness(95%) contrast(89%);
 }
 
-/* Pills block — reusable inline tag cluster */
+/* Pills block - reusable inline tag cluster */
 .feature-pills {
   display: flex;
   flex-wrap: wrap;

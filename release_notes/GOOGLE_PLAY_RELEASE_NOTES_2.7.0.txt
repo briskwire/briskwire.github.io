@@ -1,5 +1,5 @@
 New Features:
-• Encrypted transfers — the receiver shows a key code, you scan it, then both screens show a 6-digit security code to compare before the file opens.
+• Encrypted transfers - the receiver shows a key code, you scan it, then both screens show a 6-digit security code to compare before the file opens.
 • Choose plain or encrypted every time you send.
 
 Improvements:

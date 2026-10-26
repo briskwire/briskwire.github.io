@@ -1,3 +1,3 @@
 # Empty inbox
 
-Briskwire's receive screen before any file has arrived. Hit Receive to start scanning.
+The receive screen before any file has arrived. Tap Receive to start scanning.

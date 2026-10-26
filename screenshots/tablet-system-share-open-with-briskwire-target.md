@@ -1,3 +1,3 @@
-# Share to Briskwire from anywhere
+# Share to Briskwire from any app
 
-Briskwire registers as an "Open with…" target across Android, so any file in any app can be sent over animated QR codes in one tap.
+Briskwire appears as an "Open with…" target, so you can send any file from any app in one tap.

@@ -32,7 +32,7 @@ phone-receiver-inbox-single-unsaved-file
 phone-receiver-inbox-multiple-unsaved-files
 phone-receiver-file-actions-share-save-open-delete
 
-# Detect — scan codes & trigger Android actions
+# Detect: scan codes and open them in Android apps
 phone-scanner-multi-code-detection-camera-view
 phone-scanner-multi-code-printed-codes-real-photo
 phone-scanner-code-detail-upc-a-product-barcode

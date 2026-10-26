@@ -1,5 +1,5 @@
 /* ============================================================
-   Briskwire — Main Script
+   Briskwire - Main Script
    ============================================================ */
 
 (function () {
@@ -23,7 +23,7 @@
   });
 
   // ============================================================
-  // 2. NAVBAR — scroll shadow + mobile menu
+  // 2. NAVBAR - scroll shadow + mobile menu
   // ============================================================
   window.addEventListener('scroll', () => {
     navbar.classList.toggle('scrolled', window.scrollY > 10);
@@ -77,7 +77,7 @@
   }
 
   // ============================================================
-  // 3. SCROLL ANIMATIONS — fade-in-up via IntersectionObserver
+  // 3. SCROLL ANIMATIONS - fade-in-up via IntersectionObserver
   // ============================================================
   const fadeObserver = new IntersectionObserver(entries => {
     entries.forEach(entry => {
@@ -93,7 +93,7 @@
   }
 
   // ============================================================
-  // 4. SCREENSHOTS — build from index.txt, lightbox
+  // 4. SCREENSHOTS - build from index.txt, lightbox
   // ============================================================
   let screenshotItems = [];
 
@@ -156,7 +156,7 @@
       initLightbox();
       observeFadeElements();
     } catch {
-      grid.innerHTML = '<div class="screenshots-empty">Screenshots coming soon — Briskwire is in active development.</div>';
+      grid.innerHTML = '<div class="screenshots-empty">Screenshots coming soon - Briskwire is in active development.</div>';
     }
   }
 
@@ -247,7 +247,7 @@
     else if (e.key === 'ArrowRight' && currentIdx < screenshotItems.length - 1) openLightbox(currentIdx + 1);
   });
 
-  // Standalone image zoom — for codec tiles and other comparison images
+  // Standalone image zoom - for codec tiles and other comparison images
   // outside the screenshots section (no prev/next, no scroll-back)
   function openImageZoom(src, alt, pixelPerfect) {
     if (!modal || !modalImg) return;
@@ -319,7 +319,7 @@
   });
 
   // ============================================================
-  // 6. RELEASE NOTES — load from index.txt
+  // 6. RELEASE NOTES - load from index.txt
   // ============================================================
   async function loadReleaseNotes() {
     const container = document.getElementById('release-notes-container');
@@ -380,7 +380,7 @@
             e.stopPropagation();
             const url = ytBtn.dataset.youtube;
             const ver = ytBtn.dataset.version;
-            if (url) openVideoModal(url, `Tutorial — Version ${ver}`);
+            if (url) openVideoModal(url, `Tutorial - Version ${ver}`);
             return;
           }
           header.closest('.release-note-item').classList.toggle('open');
@@ -460,7 +460,7 @@
   }
 
   // ============================================================
-  // 6b. DESKTOP RELEASES — downloads/desktop-releases.json + GitHub
+  // 6b. DESKTOP RELEASES - downloads/desktop-releases.json + GitHub
   // ============================================================
   // Two sources, merged by version:
   //  - downloads/desktop-releases.json, written by the release pipeline

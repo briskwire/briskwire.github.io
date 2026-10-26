@@ -1,4 +1,4 @@
 New Features:
-• First release — offline file transfer between two Android phones.
-• Animated QR codes — send any file as a QR sequence the other device scans with its camera.
-• Received files — re-share, export, open in other apps, or delete.
+• First release - offline file transfer between two Android phones.
+• Animated QR codes - send any file as a QR sequence the other device scans with its camera.
+• Received files - re-share, export, open in other apps, or delete.

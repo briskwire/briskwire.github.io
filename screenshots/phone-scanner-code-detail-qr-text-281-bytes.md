@@ -1,3 +1,3 @@
-# Long text decoded — solo scan
+# Long text, single scan
 
-Standalone scan of a 281-byte plain-text QR. Same Detect-detail UI as multi-code sessions; format shown as TEXT, with parsed plain-text view below.
+A single scan of a 281-byte text QR. The detail screen shows the format as TEXT, with the text below.

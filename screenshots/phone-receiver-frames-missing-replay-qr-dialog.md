@@ -1,3 +1,3 @@
-# Missing frames? Replay only what's needed
+# Missing frames? Resend only those
 
-If a few QR frames are missed, the receiver shows a small retry QR back to the sender — and only the missing parts are re-broadcast.
+If a few frames are missed, the receiver shows a small retry QR to the sender. Only the missing parts are sent again.
